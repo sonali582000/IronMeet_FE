@@ -1,25 +1,33 @@
+* {
+  background-color: #eaced9;
+  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Dela Gothic One', cursive;
+  color: red;
+  margin: 0;
+  padding: 0;
 
-body{
-  background-color: rgb(227, 178, 226);
 }
 
-
-
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
   
+} */
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 4em;
 }
-
-
 
 /* .card {
   padding: 2em;
 } */
 
 
+/* FOOTER */
 
 footer {
   background-color: rgb(216, 176, 229);
@@ -32,6 +40,18 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  /* height: 100px; */
 
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.columns div {
+  flex: 1;
+  text-align: center;
+  padding: 4em;
 }
