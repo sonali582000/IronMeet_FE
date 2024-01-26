@@ -3,7 +3,9 @@
 function Navbar() {
     return (
         <nav>
-            <button>Home</button>
+            <Link to="/">
+                <button>Home</button>
+            </Link>
         </nav>
     )
 }
