@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
+import AboutPage from "./pages/aboutPage";
+import ProfilePage from "./pages/ProfilePage";
 import './App.css';
 
 function App() {
@@ -12,7 +14,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* Define other routes here */}
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+
         </Routes>
         <Footer />
       </div>
