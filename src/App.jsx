@@ -3,20 +3,23 @@ import { useState } from 'react';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
+import SignUpPage from './pages/SignUpPage';
+import LoginPage from './pages/LoginPage';
 import './App.css';
 
 function App() {
   return (
-    <Router>
+    <>
       <div className='App'>
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* Define other routes here */}
+          <Route path='/signup' element={<SignUpPage />} />
+          <Route path='/login' element={<LoginPage />} /> 
         </Routes>
         <Footer />
       </div>
-    </Router>
+    </>
   );
 }
 
