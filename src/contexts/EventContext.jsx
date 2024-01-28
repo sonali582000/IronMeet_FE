@@ -12,9 +12,10 @@ const EventContextProvider = ({children}) => {
 
             const response = await axios.get(`${import.meta.env.VITE_API_URL}/event`)
 
-            if(response === 200){
+            if(response.status === 200){
                 const eventsData = response.data
                 setEvents(eventsData)
+                console.log("Events:",eventsData)
             }
             
         } catch (error) {
@@ -25,7 +26,7 @@ const EventContextProvider = ({children}) => {
     const fetchOneEvent = async (_id) =>{
         try {
             const response = await axios.get(`${import.meta.env.VITE_API_URL}/event/${_id}`)
-            if(response === 200){
+            if(response.status === 200){
                 const eventData = response.data
                 setEvent(eventData)
                 console.log("Fetched event:", eventData);
@@ -38,7 +39,6 @@ const EventContextProvider = ({children}) => {
 
     useEffect(()=>{
         fetchEvents()
-        console.log("Events:",events)
     },[])
 
 
