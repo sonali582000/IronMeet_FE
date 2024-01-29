@@ -1,8 +1,9 @@
-import { Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/aboutPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from 'react';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
