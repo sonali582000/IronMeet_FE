@@ -1,11 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
-<<<<<<< HEAD
-import { useNavigate } from 'react-router-dom'
-
-=======
 // import { navigate } from "react-router-dom";
->>>>>>> 1688a1f26d9d0cbc7283f1a857a8659857052a89
 
 export const EventContext = createContext();
 
