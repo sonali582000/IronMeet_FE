@@ -1,9 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import { navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 
 export const EventContext = createContext();
+const navigate = useNavigate()
 
 const EventContextProvider = ({children}) => {
     const [events, setEvents] = useState([]);
