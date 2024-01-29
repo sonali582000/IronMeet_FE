@@ -1,25 +1,51 @@
-import { useContext, useEffect } from "react"
-import { EventContext } from "../contexts/EventContext"
-import { useParams } from "react-router-dom"
+import { useContext, useEffect, useState } from "react";
+import { EventContext } from "../contexts/EventContext";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 const EventDetails = () => {
+  const { fetchOneEvent, event } = useContext(EventContext);
+  const { eventId } = useParams();
+  const navigate = useNavigate();
 
-    const {fetchOneEvent, event} = useContext(EventContext)
-    const {eventId} = useParams();
+  useEffect(() => {
+    fetchOneEvent(eventId);
+    //console.log(event)
+  }, [eventId]);
 
-    useEffect(()=> {
-        fetchOneEvent(eventId)
-       // console.log(event)
-    },[])
+  const handleDelete = async () => {
+    try {
+      const response = await fechWithToken(`/event${eventId}`, "DELETE");
+      if (response.status === 204) {
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    return(
+  return event ? (
+    <>
+      <h1>Event Details</h1>
+      <p>{event.title}</p>
+      <p>{event.category}</p>
+      <p>{event.location}</p>
+      <p>{event.type}</p>
+      <p>{event.status}</p>
+      <p>{event.photo}</p>
+
+      {userId === event.createdBy && (
         <>
-        <h1>Event details</h1>
-        {event && (
-                <p>{event.title}</p>
-            )}
+          <button type="button" onClick={handleDelete}>
+            Delete
+          </button>
+          <Link to={`/event/${event._id}/update`}>Update</Link>
         </>
-    )
-}
+      )}
+    </>
+  ) : (
+    <h2>Loading...</h2>
+  );
+};
 
-export default EventDetails
+export default EventDetails;
