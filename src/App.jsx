@@ -21,8 +21,8 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
 
           <Route path='/signup' element={<SignUpPage />} />
-          <Route path='/login' element={<LoginPage />} /> 
-          <Route path='/eventDetail/:eventId' element={<EventDetails />} /> 
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/eventDetail/:eventId' element={<EventDetails />} />
         </Routes>
         <Footer />
       </div>
