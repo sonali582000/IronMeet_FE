@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
 export const AuthContext = createContext();
@@ -19,10 +20,13 @@ const AuthContextProvider = ({ children }) => {
 
   const verifyToken = async (tokenFromLocalStorage) => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/verify`, {
-        headers: { Authorization: `Bearer ${tokenFromLocalStorage}` },
-      });
-      if (res.status === 200) {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/auth/verify`,
+        {
+          headers: { Authorization: `Bearer ${tokenFromLocalStorage}` },
+        }
+      );
+      if (response.status === 200) {
         setIsAuthenticated(true);
         setToken(tokenFromLocalStorage);
         setIsLoading(false);
@@ -33,7 +37,7 @@ const AuthContextProvider = ({ children }) => {
         window.localStorage.removeItem("authToken");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setIsLoading(false);
       window.localStorage.removeItem("authToken");
     }
@@ -41,17 +45,15 @@ const AuthContextProvider = ({ children }) => {
 
   const fetchWithToken = async (endpoint, method = "GET", payload) => {
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/${endpoint}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(payload),
-          method,
-        }
-      );
+      const response = await axios({
+        method,
+        url: `${import.meta.env.VITE_API_URL}/${endpoint}`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-type": "application/json",
+        },
+        data: payload,
+      });
       return response;
     } catch (error) {
       console.error(error);

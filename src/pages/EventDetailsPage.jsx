@@ -39,7 +39,7 @@ const EventDetails = () => {
           <button type="button" onClick={handleDelete}>
             Delete
           </button>
-          <Link to={`/event/${event._id}/update`}>Update</Link>
+          <Link to={"/"}>Update</Link>
         </>
       )}
     </>
