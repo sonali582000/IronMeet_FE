@@ -15,7 +15,7 @@ const EventContextProvider = ({ children }) => {
       if (response.status === 200) {
         const eventsData = response.data;
         setEvents(eventsData);
-        console.log("Events:", eventsData);
+        // console.log("Events:", eventsData);
       }
     } catch (error) {
       console.error(error);
