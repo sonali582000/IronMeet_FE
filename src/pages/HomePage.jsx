@@ -17,12 +17,12 @@ function HomePage() {
       <Link to="/login">
         <button>Go to Login</button>
       </Link>
-      {/* <ul>
+      <ul>
         {events &&
           events.map((event) => {
             <li key={event._id}>{event.title}</li>;
           })}
-      </ul> */}
+      </ul>
     </div>
   );
 }
