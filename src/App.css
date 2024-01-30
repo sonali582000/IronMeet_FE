@@ -1,3 +1,17 @@
+:root {
+  --main-orange: #f65858;
+  --main-green:#00798a;
+  --light-green: #f2f9fa;
+  --main-background: #ffffff;
+  --dark-background:#212121;
+  --main-title-color: #282828;
+  --text-color: #a3a3a3;
+  --label-text-color: #606060;
+  --orange-light: #f4c0b0;
+  --background-light-grey: #f6f6f6;
+  --border-white-grey: #dbdbdb;
+}
+
 * {
   background-color: #eaced9;
   font-family: 'Bebas Neue', sans-serif;
@@ -8,24 +22,12 @@
 
 }
 
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  
-} */
 
 body {
   display: flex;
   flex-direction: column;
   margin: 4em;
 }
-
-/* .card {
-  padding: 2em;
-} */
-
 
 /* FOOTER */
 
