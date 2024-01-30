@@ -1,8 +1,11 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { AuthContext } from "./AuthContext";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom'
+
 
 export const EventContext = createContext();
+const navigate = useNavigate()
 
 const EventContextProvider = ({ children }) => {
   const { fetchWithToken } = useContext(AuthContext);
