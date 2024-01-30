@@ -12,6 +12,7 @@ import "./App.css";
 import EventPage from "./pages/EventPage";
 import UpdateEventPage from "./pages/UpdateEventPage";
 import AllComment from "./components/AllComment";
+import AllEventsPage from "./pages/AllEventsPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/allEvents" element={<AllEventsPage />} />
           <Route path="/*" element={<h1>Page not found</h1>} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/profile" element={<ProfilePage />} />
