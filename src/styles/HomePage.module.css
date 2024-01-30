@@ -5,7 +5,7 @@
     text-align: center;
 }
 
-.homeButtonsContainer {
+/* .homeButtonsContainer {
 display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,4 +32,4 @@ display: flex;
 .homeButton:hover {
     border-color: #666;
 
-}
+} */
