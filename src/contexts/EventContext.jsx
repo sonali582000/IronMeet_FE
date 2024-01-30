@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 export const EventContext = createContext();
 
 const EventContextProvider = ({ children }) => {
-  const { fetchWithToken } = useContext(AuthContext);
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState([]);
   const navigate = useNavigate();
