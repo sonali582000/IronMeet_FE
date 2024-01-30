@@ -7,7 +7,7 @@ import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
-import EventDetails from "./pages/EventDetailsPage";
+import EventDetailsPage from "./pages/EventDetailsPage";
 import "./App.css";
 import EventPage from "./pages/EventPage";
 import UpdateEventPage from "./pages/UpdateEventPage";
@@ -27,7 +27,8 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/eventDetail/:eventId" element={<EventDetails />} />
+          <Route path="/eventDetail/:eventId" element={<EventDetailsPage />} />
+
           <Route path="/event/new" element={<EventPage />} />
           <Route path="/event/:eventId" element={<UpdateEventPage />} />
           <Route path="/comment/:eventId" element={<AllComment />} />
