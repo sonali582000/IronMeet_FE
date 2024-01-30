@@ -26,34 +26,11 @@
 body {
   display: flex;
   flex-direction: column;
-  margin: 4em;
+  margin: 1em;
 }
 
-/* FOOTER */
 
-footer {
-  background-color: rgb(216, 176, 229);
-  padding: 2px 0;
-  flex-shrink: 0;
-  position: relative;
-  /* margin-bottom: auto !important; */
-  /* width: 100%; */
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 
-}
 
-.columns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-}
 
-.columns div {
-  flex: 1;
-  text-align: center;
-  padding: 4em;
-}
