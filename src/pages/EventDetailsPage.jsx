@@ -10,11 +10,17 @@ const EventDetails = () => {
   const { eventId } = useParams();
   const navigate = useNavigate();
   const [text, setText] = useState("");
+  const [commentId, setCommentId] = useState("");
+  const [needsReload, setNeedsReload] = useState(true);
 
   useEffect(() => {
-    fetchOneEvent(eventId);
+    if (needsReload) {
+      fetchOneEvent(eventId);
+      setNeedsReload(false);
+    }
+
     // console.log(event)
-  }, []);
+  }, [needsReload]);
 
   const handleDelete = () => {
     event.preventDefault();
@@ -32,11 +38,34 @@ const EventDetails = () => {
       const response = await fetchWithToken(`comment`, "POST", payload);
       if (response.status === 201) {
         alert("Your comment is saved!!");
+        setNeedsReload(true);
       }
     } catch (error) {
       console.log(error);
       console.log({
         message: "Some went wrong while submitting your comment :(",
+      });
+    }
+  };
+
+  //for updating comments
+  const handleUpdate = async (event) => {
+    event.preventDefault();
+    const payload = { text, eventId, userId, commentId };
+
+    try {
+      const response = await fetchWithToken(
+        `comment/${commentId}`,
+        "PUT",
+        payload
+      );
+      if (response.status === 201) {
+        alert("Your comment is updated!!");
+      }
+    } catch (error) {
+      console.log(error);
+      console.log({
+        message: "Some went wrong while updating your comment :(",
       });
     }
   };
@@ -62,7 +91,7 @@ const EventDetails = () => {
             <button>Update</button>
           </Link>
           <Link to="/event/new">
-            <button>Edit</button>
+            <button>Create</button>
           </Link>
         </>
       )}
@@ -79,7 +108,8 @@ const EventDetails = () => {
         />
         <button type="submit">Submit</button>
       </form>
-      <AllComment />
+
+      <AllComment handleUpdate={handleUpdate} needsReload={needsReload} />
     </>
   );
 };

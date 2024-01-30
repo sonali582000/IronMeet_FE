@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useFetcher, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
-const AllComment = () => {
+const AllComment = ({ handleUpdate, needsReload }) => {
   const { eventId } = useParams();
   const [comment, getComment] = useState();
-  const { fetchWithToken } = useContext(AuthContext);
+  const { fetchWithToken, userId } = useContext(AuthContext);
+  const [commentId, setCommentId] = useState();
+  const [visible, setVisible] = useState(false);
 
   const fetchComments = async () => {
     try {
@@ -21,8 +23,10 @@ const AllComment = () => {
   };
 
   useEffect(() => {
-    fetchComments();
-  }, [eventId]);
+    if (needsReload) {
+      fetchComments();
+    }
+  }, [eventId, needsReload]);
 
   return comment ? (
     <>
@@ -30,6 +34,19 @@ const AllComment = () => {
       {comment.map((comment) => (
         <div key={comment._id}>
           <p>{comment.text}</p>
+          {console.log("comment", comment.madeBy, "user", userId)}
+          {comment.madeBy === userId && (
+            <>
+              <button
+                onClick={() => {
+                  setVisible(!visible);
+                }}
+              >
+                Update Comment
+              </button>
+            </>
+          )}
+          {visible ? <p>Test</p> : null}
         </div>
       ))}
     </>
