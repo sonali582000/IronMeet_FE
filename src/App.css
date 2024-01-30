@@ -29,85 +29,8 @@ body {
   margin: 4em;
 }
 
-/* FOOTER */
 
-footer {
-  background-color: rgb(216, 176, 229);
-  padding: 2px 0;
-  flex-shrink: 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 
-}
 
-.columns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-}
 
-.columns div {
-  flex: 1;
-  text-align: center;
-  padding: 4em;
-}
-
-@media only screen and (max-width: 768px) {
-  .columns div {
-    flex-basis: 100%;
-    padding: 1em;
-    font-size: 0.9em;
-  }
-}
-
-/* PROFILE SECTION */
-
-.profile-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ff0000;
-  border-radius: 5px;
-}
-
-.welcome-section {
-  margin-bottom: 20px;
-}
-
-.user-email {
-  font-weight: bold;
-}
-
-.profile-section {
-  margin-bottom: 20px;
-}
-
-.profile-picture {
-  width: 100px;
-  height: 100px;
-  display: inline-block;
-  background-color: #ecc2c2;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.events-section {
-  border-top: 1px solid #ccc;
-  padding-top: 20px;
-}
-
-.events-section h2 {
-  margin-bottom: 10px;
-  font-size: 1.2em;
-}
-
-.event {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}

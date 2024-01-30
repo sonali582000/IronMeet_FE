@@ -5,14 +5,16 @@ import { useNavigate } from 'react-router-dom'
 
 
 export const EventContext = createContext();
-const navigate = useNavigate()
+
 
 const EventContextProvider = ({ children }) => {
   const { fetchWithToken } = useContext(AuthContext);
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState([]);
+  const navigate = useNavigate()
 
   const fetchEvents = async () => {
+
     try {
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/event`);
 

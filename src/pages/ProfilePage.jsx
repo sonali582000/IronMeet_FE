@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
-
+import styles from '../styles/Profile.module.css';
 
 const ProfilePage = () => {
     const [user, setUser] = useState([]);
@@ -31,25 +31,17 @@ const ProfilePage = () => {
     }, [userId]); //we add user id on the array to have it again after refreshing the page
 
     return (
-        // <div>
-        //     <h1>Users page</h1>
-        //     <div>
-        //         <p>Welcome {user.email}!  </p>
-        //     </div>
-        //     <div>
-        //         <span>{user.profile_picture}</span>
-        //     </div>
-        // </div>
+     
         <div>
             <h1>Users page</h1>
-            <div className="profile-container">
-                <div className="welcome-section">
-                    <p>Welcome <span className="user-email">{user.email}</span>!</p>
+            <div className={styles.profileContainer}>
+                <div className={styles.welcomeSection}>
+                    <p>Welcome <span className={styles.userEemail}>{user.email}</span>!</p>
                 </div>
-                <div className="profile-section">
-                    <span className="profile-picture">{user.profile_picture}</span>
+                <div className={styles.profile_section}>
+                    <span className={styles.profilePicture}>{user.profile_picture}</span>
                 </div>
-                <div className="events-section">
+                <div className={styles.eventSection}>
                     <h2>Events you are interested in:</h2>
                     {/* display events here */}
                 </div>
