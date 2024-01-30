@@ -1,50 +1,52 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { EventContext } from "../contexts/EventContext";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
 const EventDetails = () => {
-  const { fetchOneEvent, event } = useContext(EventContext);
+  const { fetchOneEvent, deleteEvent, event } = useContext(EventContext);
+  const { userId } = useContext(AuthContext);
   const { eventId } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchOneEvent(eventId);
-    //console.log(event)
-  }, [eventId]);
+    // console.log(event)
+  }, []);
 
-  const handleDelete = async () => {
-    try {
-      const response = await fechWithToken(`/event${eventId}`, "DELETE");
-      if (response.status === 204) {
-        navigate("/");
-      }
-    } catch (error) {
-      console.log(error);
-    }
+  const handleDelete = () => {
+    event.preventDefault();
+    deleteEvent(eventId);
+    console.log("deleted");
+    navigate("/");
   };
 
-  return event ? (
+  return (
     <>
-      <h1>Event Details</h1>
-      <p>{event.title}</p>
-      <p>{event.category}</p>
-      <p>{event.location}</p>
-      <p>{event.type}</p>
-      <p>{event.status}</p>
-      <p>{event.photo}</p>
-
-      {userId === event.createdBy && (
+      <h1>Event details</h1>
+      {event && (
         <>
-          <button type="button" onClick={handleDelete}>
-            Delete
-          </button>
-          <Link to={"/"}>Update</Link>
+          <p>Title: {event.title}</p>
+          <p>Description: {event.description}</p>
+          <p>Location: {event.location}</p>
+          <p>Type: {event.type}</p>
+          <p>Status: {event.status}</p>
+          <p>Photo: {event.photo}</p>
+        </>
+      )}
+
+      {event.createdBy === userId && (
+        <>
+          <button onClick={handleDelete}>Delete</button>
+          <Link to={`/event/${eventId}`}>
+            <button>Update</button>
+          </Link>
+          <Link to="/event/new">
+            <button>Edit</button>
+          </Link>
         </>
       )}
     </>
-  ) : (
-    <h2>Loading...</h2>
   );
 };
 

@@ -10,6 +10,8 @@ import EventDetails from "./pages/EventDetailsPage";
 import "./App.css";
 import EventPage from "./pages/EventPage";
 import UpdateEventPage from "./pages/UpdateEventPage";
+import EventDetailsPage from "./pages/EventDetailsPage";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -24,7 +26,14 @@ function App() {
 
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/eventDetail/:eventId" element={<EventDetails />} />
+          <Route
+            path="/eventDetail/:eventId"
+            element={
+              <PrivateRoute>
+                <EventDetailsPage />
+              </PrivateRoute>
+            }
+          />
 
           <Route path="/event/new" element={<EventPage />} />
           <Route path="/event/:eventId" element={<UpdateEventPage />} />

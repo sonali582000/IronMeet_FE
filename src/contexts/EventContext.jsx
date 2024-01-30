@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { AuthContext } from "./AuthContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const EventContext = createContext();
 
@@ -8,6 +9,7 @@ const EventContextProvider = ({ children }) => {
   const { fetchWithToken } = useContext(AuthContext);
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState([]);
+  const navigate = useNavigate();
 
   const fetchEvents = async () => {
     try {
@@ -83,6 +85,7 @@ const EventContextProvider = ({ children }) => {
         setEvents((prevEvents) =>
           prevEvents.filter((event) => event._id !== eventId)
         );
+        navigate("/");
         console.log("Event deleted:", eventId);
       }
     } catch (error) {
