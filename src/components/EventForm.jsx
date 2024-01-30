@@ -82,80 +82,83 @@ const EventForm = ({ sameUser = false }) => {
   };
 
   return (
-    <form
-      style={{ display: "flex", flexDirection: "column" }}
-      onSubmit={handleSubmit}
-    >
-      <label>
-        Title
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </label>
-      <label>
-        Description
-        <textarea
-          rows={1}
-          cols={10}
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </label>
-      <label>
-        Date
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-      </label>
-      <label>
-        Category
-        <input
-          type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        />
-      </label>
-      <label>
-        Location
-        <input
-          type="text"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        />
-      </label>
-      <label>
-        Type
-        <select value={type} onChange={(e) => setType(e.target.value)}>
-          <option value="">Select an option</option>
-          <option value="in-person">in-person</option>
-          <option value="virtual">virtual</option>
-          <option value="hybrid">hybrid</option>
-        </select>
-      </label>
-      <label>
-        Status
-        <select value={status} onChange={(e) => setStatus(e.target.value)}>
-          <option value="">Select an option</option>
-          <option value="upcoming">upcoming</option>
-          <option value="ongoing">ongoing</option>
-          <option value="completed">completed</option>
-          <option value="canceled">canceled</option>
-        </select>
-      </label>
-      <label>
-        Photo
-        <input
-          type="text"
-          value={photo}
-          onChange={(e) => setPhoto(e.target.value)}
-        />
-      </label>
-      <button type="submit">{sameUser ? "Create Event" : "Update"}</button>
-    </form>
+    <>
+      <h1>{sameUser ? "Create an Event" : "Update an Event"}</h1>
+      <form
+        style={{ display: "flex", flexDirection: "column" }}
+        onSubmit={handleSubmit}
+      >
+        <label>
+          Title
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </label>
+        <label>
+          Description
+          <textarea
+            rows={1}
+            cols={10}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </label>
+        <label>
+          Date
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </label>
+        <label>
+          Category
+          <input
+            type="text"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          />
+        </label>
+        <label>
+          Location
+          <input
+            type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </label>
+        <label>
+          Type
+          <select value={type} onChange={(e) => setType(e.target.value)}>
+            <option value="">Select an option</option>
+            <option value="in-person">in-person</option>
+            <option value="virtual">virtual</option>
+            <option value="hybrid">hybrid</option>
+          </select>
+        </label>
+        <label>
+          Status
+          <select value={status} onChange={(e) => setStatus(e.target.value)}>
+            <option value="">Select an option</option>
+            <option value="upcoming">upcoming</option>
+            <option value="ongoing">ongoing</option>
+            <option value="completed">completed</option>
+            <option value="canceled">canceled</option>
+          </select>
+        </label>
+        <label>
+          Photo
+          <input
+            type="text"
+            value={photo}
+            onChange={(e) => setPhoto(e.target.value)}
+          />
+        </label>
+        <button type="submit">{sameUser ? "Create Event" : "Update"}</button>
+      </form>
+    </>
   );
 };
 

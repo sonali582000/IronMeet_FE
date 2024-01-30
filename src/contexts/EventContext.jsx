@@ -1,16 +1,14 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { AuthContext } from "./AuthContext";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom'
-
+import { useNavigate } from "react-router-dom";
 
 export const EventContext = createContext();
-const navigate = useNavigate()
 
 const EventContextProvider = ({ children }) => {
-  const { fetchWithToken } = useContext(AuthContext);
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState([]);
+  const navigate = useNavigate();
 
   const fetchEvents = async () => {
     try {
@@ -19,7 +17,7 @@ const EventContextProvider = ({ children }) => {
       if (response.status === 200) {
         const eventsData = response.data;
         setEvents(eventsData);
-        console.log("Events:", eventsData);
+        // console.log("Events:", eventsData);
       }
     } catch (error) {
       console.error(error);
@@ -34,7 +32,7 @@ const EventContextProvider = ({ children }) => {
       if (response.status === 200) {
         const eventData = response.data;
         setEvent(eventData);
-        console.log("Fetched event:", eventData);
+        // console.log("Fetched event:", eventData);
       }
     } catch (error) {
       console.error(error);
@@ -50,7 +48,7 @@ const EventContextProvider = ({ children }) => {
       if (response.status === 201) {
         const addedEvent = response.data;
         setEvents((prevEvents) => [...prevEvents, addedEvent]);
-        console.log(addedEvent, "new event added");
+        // console.log(addedEvent, "new event added");
       }
     } catch (error) {
       console.error(error);
@@ -72,7 +70,7 @@ const EventContextProvider = ({ children }) => {
           )
         );
         navigate("/");
-        console.log("Event updated:", updatedEvent);
+        // console.log("Event updated:", updatedEvent);
       }
     } catch (error) {
       console.error(error);
@@ -86,6 +84,7 @@ const EventContextProvider = ({ children }) => {
         setEvents((prevEvents) =>
           prevEvents.filter((event) => event._id !== eventId)
         );
+        navigate("/");
         console.log("Event deleted:", eventId);
       }
     } catch (error) {
