@@ -1,7 +1,6 @@
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { EventContext } from "../contexts/EventContext";
-import EventCard from "../components/EventCard";
 
 function HomePage() {
   const { events } = useContext(EventContext);
@@ -24,7 +23,6 @@ function HomePage() {
             <li key={event._id}>{event.title}</li>;
           })}
       </ul>
-      <EventCard />
     </div>
   );
 }
