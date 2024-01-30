@@ -1,13 +1,15 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { EventContext } from "../contexts/EventContext";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import AllComment from "../components/AllComment";
 
 const EventDetails = () => {
   const { fetchOneEvent, deleteEvent, event } = useContext(EventContext);
-  const { userId } = useContext(AuthContext);
+  const { userId, fetchWithToken } = useContext(AuthContext);
   const { eventId } = useParams();
   const navigate = useNavigate();
+  const [text, setText] = useState("");
 
   useEffect(() => {
     fetchOneEvent(eventId);
@@ -19,6 +21,24 @@ const EventDetails = () => {
     deleteEvent(eventId);
     console.log("deleted");
     navigate("/");
+  };
+
+  //for creating comments
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const payload = { text, eventId, userId };
+
+    try {
+      const response = await fetchWithToken(`comment`, "POST", payload);
+      if (response.status === 201) {
+        alert("Your comment is saved!!");
+      }
+    } catch (error) {
+      console.log(error);
+      console.log({
+        message: "Some went wrong while submitting your comment :(",
+      });
+    }
   };
 
   return (
@@ -46,6 +66,20 @@ const EventDetails = () => {
           </Link>
         </>
       )}
+      <form
+        style={{ display: "flex", flexDirection: "column" }}
+        onSubmit={handleSubmit}
+      >
+        <textarea
+          rows={2}
+          cols={50}
+          placeholder="Your Comments"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <AllComment />
     </>
   );
 };

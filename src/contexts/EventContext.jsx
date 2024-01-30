@@ -17,7 +17,7 @@ const EventContextProvider = ({ children }) => {
       if (response.status === 200) {
         const eventsData = response.data;
         setEvents(eventsData);
-        console.log("Events:", eventsData);
+        // console.log("Events:", eventsData);
       }
     } catch (error) {
       console.error(error);
@@ -32,7 +32,7 @@ const EventContextProvider = ({ children }) => {
       if (response.status === 200) {
         const eventData = response.data;
         setEvent(eventData);
-        console.log("Fetched event:", eventData);
+        // console.log("Fetched event:", eventData);
       }
     } catch (error) {
       console.error(error);
@@ -48,7 +48,7 @@ const EventContextProvider = ({ children }) => {
       if (response.status === 201) {
         const addedEvent = response.data;
         setEvents((prevEvents) => [...prevEvents, addedEvent]);
-        console.log(addedEvent, "new event added");
+        // console.log(addedEvent, "new event added");
       }
     } catch (error) {
       console.error(error);
@@ -70,7 +70,7 @@ const EventContextProvider = ({ children }) => {
           )
         );
         navigate("/");
-        console.log("Event updated:", updatedEvent);
+        // console.log("Event updated:", updatedEvent);
       }
     } catch (error) {
       console.error(error);
