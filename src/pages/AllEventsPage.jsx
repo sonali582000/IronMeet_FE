@@ -7,7 +7,7 @@ const AllEventsPage = () => {
 
     useEffect(() => {
         fetchEvents();
-    }, [fetchEvents]);
+    }, []);
 
     return (
         <div className="all-events-page">

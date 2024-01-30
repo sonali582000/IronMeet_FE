@@ -1,24 +1,22 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from '../styles/event.module.css'
 
 const EventCard = ({ event }) => {
-    const { _id, title, date, status, location, photo } = event;
-
-    return (
-        <div className="event-card" style={{ width: '300px' }}>
-            <div className="event-image">
-                <img src={photo} alt={title} />
-            </div>
-            <div className="event-details">
-                <h3>{title}</h3>
-                <p>Date: {date}</p>
-                <p>Status: {status}</p>
-                <p>Location: {location}</p>
-                <Link to={`/event/${_id}`}>
-                    <button>More</button>
-                </Link>
-            </div>
-        </div>
-    );
+  return (
+    <div className={styles.eventCard}>
+      <img src={event.imageUrl} alt="Event" className={styles.eventImage} />
+      <div className={styles.eventDetails}>
+        <h3 className={styles.eventTitle}>{event.title}</h3>
+        <p className={styles.eventDate}>Date: {event.date}</p>
+        <p className={styles.eventLocation}>Location: {event.location}</p>
+        <p className={styles.eventStatus}>Status: {event.status}</p>
+        <Link to={`/eventDetail/${event._id}`}>
+        <button className={styles.moreButton}>More</button>
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default EventCard;

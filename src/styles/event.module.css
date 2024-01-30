@@ -1,0 +1,58 @@
+.eventCard {
+    width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .eventImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .eventDetails {
+    margin-top: 20px;
+  }
+  
+  .eventTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+  }
+  
+  .eventDate {
+    font-size: 14px;
+    color: #666666;
+  }
+  
+  .eventLocation {
+    font-size: 14px;
+    color: #666666;
+    margin-top: 10px;
+  }
+  
+  .eventStatus {
+    font-size: 14px;
+    color: #666666;
+    margin-top: 10px;
+  }
+  
+  .moreButton {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .moreButton:hover {
+    background-color: #ff4040;
+  }
+  
