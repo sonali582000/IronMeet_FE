@@ -33,6 +33,7 @@ function App() {
           <Route path="/event/new" element={<EventPage />} />
           <Route path="/event/:eventId" element={<UpdateEventPage />} />
           <Route path="/comment/:eventId" element={<AllComment />} />
+          <Route path="/comment/:commentId" element={<UpdateEventPage />} />
         </Routes>
         <Footer />
       </div>
