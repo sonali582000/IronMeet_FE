@@ -1,7 +1,7 @@
 @import '../App.css';
 
 .footer {
-    background-color: rgb(216, 176, 229);
+    background-color: #ff0000;
     padding: 2px 0;
     flex-shrink: 0;
     position: fixed;
