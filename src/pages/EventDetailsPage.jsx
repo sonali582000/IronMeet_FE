@@ -13,6 +13,7 @@ const EventDetails = () => {
   const [text, setText] = useState("");
   const [commentId, setCommentId] = useState("");
   const [needsReload, setNeedsReload] = useState(true);
+  console.log(event);
 
   useEffect(() => {
     if (needsReload) {
@@ -20,7 +21,7 @@ const EventDetails = () => {
       setNeedsReload(false);
     }
 
-    // console.log(event)
+    // console.log(event);
   }, [needsReload]);
 
   const handleDelete = () => {
@@ -83,7 +84,7 @@ const EventDetails = () => {
               <p>Location: {event.location}</p>
               <p>Type: {event.type}</p>
               <p>Status: {event.status}</p>
-              <p>Photo: {event.photo}</p>
+              <img src={event.photo} alt={event.title} />
             </>
           )}
 

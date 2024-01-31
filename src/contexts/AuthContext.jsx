@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -9,6 +10,7 @@ const AuthContextProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [userId, setUserId] = useState();
+  const navigate = useNavigate();
 
   const saveToken = (tokenFromLogin) => {
     setToken(tokenFromLogin);
@@ -65,6 +67,7 @@ const AuthContextProvider = ({ children }) => {
     window.localStorage.removeItem("authToken");
     setIsAuthenticated(false);
     setUserId();
+    navigate("/login");
   };
 
   useEffect(() => {
