@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useFetcher, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
-const AllComment = () => {
+const AllComment = ({ handleUpdate, needsReload }) => {
   const { eventId } = useParams();
   const [comment, getComment] = useState();
-  const { fetchWithToken, userId } = useContext(AuthContext);
+  const { fetchWithToken } = useContext(AuthContext);
 
   const fetchComments = async () => {
     try {
@@ -21,15 +21,17 @@ const AllComment = () => {
   };
 
   useEffect(() => {
-    fetchComments();
-  }, [eventId]);
+    if (needsReload) {
+      fetchComments();
+    }
+  }, [eventId, needsReload]);
 
   return comment ? (
     <>
       <h1>Comments</h1>
       {comment.map((comment) => (
         <div key={comment._id}>
-          {userId === comment.madeBy && <p>{comment.text}</p> && <h1>Hello</h1>}
+          <p>{comment.text}</p>
         </div>
       ))}
     </>
