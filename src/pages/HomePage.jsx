@@ -38,7 +38,7 @@ const HomePage = () => {
   };
 
   return (
-    <div style={{ padding: 200 }}>
+    <div>
       <h1>Search Events</h1>
       <input 
         type="text" 

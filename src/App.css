@@ -12,6 +12,11 @@
   --border-white-grey: #dbdbdb;
 }
 
+.pageContainer{
+  margin-inline: 80px;
+  background-color: red;
+}
+
 * {
   background-color: var(--main-background);
   font-family: 'Bebas Neue', sans-serif;
