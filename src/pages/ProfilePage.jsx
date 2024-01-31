@@ -30,7 +30,10 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <button onClick={logout}>Log out</button>
+      <div className={styles.buttonWrapper}>
+        <button className={styles.buttonLogOut}  onClick={logout}>Log out</button>
+
+      </div>
       <h1>Users page</h1>
       <div className={styles.profileContainer}>
         <div className={styles.welcomeSection}>

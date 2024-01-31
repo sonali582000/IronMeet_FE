@@ -17,9 +17,10 @@
     margin-bottom: 20px;
 } */
 
-h1{
+h1 {
     margin: 0.5em;
 }
+
 .profilePicture {
     width: 200px;
     height: 200px;
@@ -45,6 +46,15 @@ h1{
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
+}
+
+.buttonWrapper {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.buttonLogOut {
+    border: none;
 }
 
 @media only screen and (max-width: 768px) {
