@@ -1,29 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import styles from "../styles/Profile.module.css";
-import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
-import styles from "../styles/Profile.module.css";
 
 const ProfilePage = () => {
   const [user, setUser] = useState([]);
   const { userId } = useContext(AuthContext);
   console.log(userId);
 
-  const fetchUser = async () => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/auth/user/${userId}`
-      );
-      if (response.ok) {
-        const userData = await response.json();
-        console.log(userData);
-        setUser(userData);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
   const fetchUser = async () => {
     try {
       const response = await fetch(
@@ -44,11 +27,6 @@ const ProfilePage = () => {
       fetchUser();
     }
   }, [userId]); //we add user id on the array to have it again after refreshing the page
-  useEffect(() => {
-    if (userId) {
-      fetchUser();
-    }
-  }, [userId]); //we add user id on the array to have it again after refreshing the page
 
   return (
     <div>
@@ -56,7 +34,7 @@ const ProfilePage = () => {
       <div className={styles.profileContainer}>
         <div className={styles.welcomeSection}>
           <p>
-            Welcome <span className={styles.userEemail}>{user.email}</span>!
+            Welcome <span className={styles.userEemail}>{user.username}</span>!
           </p>
         </div>
         <div className={styles.profile_section}>
