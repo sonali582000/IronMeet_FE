@@ -1,5 +1,11 @@
 @import '../App.css';
 
+
+.footerWrapper {
+    min-height: 10vh;
+    position: relative;
+}
+
 .footer {
     background-color: #ff0000;
     padding: 2px 0;

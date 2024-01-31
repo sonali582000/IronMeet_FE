@@ -1,13 +1,12 @@
 @import "../App.css";
 
 .eventFormContainer {
-  height: 80vh;
   margin: 0 auto;
   padding: 20px;
   border: 2px solid #ff0000;
   border-radius: 5px;
   overflow-y: auto;
-  /* Enable vertical scrolling */
+  max-width: 70vh;
 }
 
 .eventFormContainer label {
