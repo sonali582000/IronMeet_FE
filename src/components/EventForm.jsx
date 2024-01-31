@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import styles from "../styles/EventForm.module.css";
 
 const EventForm = ({ sameUser = false }) => {
   const [title, setTitle] = useState("");
@@ -84,8 +85,9 @@ const EventForm = ({ sameUser = false }) => {
   return (
     <>
       <h1>{sameUser ? "Create an Event" : "Update an Event"}</h1>
+      <div className={styles.formWrapper}>
       <form
-        style={{ display: "flex", flexDirection: "column" }}
+       className={styles.eventFormContainer}
         onSubmit={handleSubmit}
       >
         <label>
@@ -158,6 +160,7 @@ const EventForm = ({ sameUser = false }) => {
         </label>
         <button type="submit">{sameUser ? "Create Event" : "Update"}</button>
       </form>
+      </div>
     </>
   );
 };

@@ -1,0 +1,57 @@
+@import '../App.css';
+
+
+
+.eventFormContainer {
+    height: 80vh;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+   
+}
+.eventFormContainer label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  
+}
+
+.eventFormContainer input,
+.eventFormContainer textarea,
+.eventFormContainer select {
+    width: calc(100% - 150px);
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ff0000;
+    border-radius: 2px;
+}
+
+.eventFormContainer button {
+    padding: 20px 50px;
+    background-color: transparent;
+    color: rgb(255, 0, 0);
+    border: 2px solid #ff0000;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5em auto;
+    display: block;
+
+}
+
+.eventFormContainer button:hover {
+    background-color: #002fff;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    .eventFormContainer {
+        height: 80vh;
+        justify-content: space-between;
+        align-items: center;
+        overflow-y: auto;
+        padding-top:2em;
+
+    }
+}
