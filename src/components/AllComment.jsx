@@ -5,7 +5,9 @@ import { AuthContext } from "../contexts/AuthContext";
 const AllComment = ({ handleUpdate, needsReload }) => {
   const { eventId } = useParams();
   const [comment, getComment] = useState();
-  const { fetchWithToken } = useContext(AuthContext);
+  const { fetchWithToken, userId } = useContext(AuthContext);
+  const [commentId, setCommentId] = useState();
+  const [visible, setVisible] = useState(false);
 
   const fetchComments = async () => {
     try {
@@ -32,6 +34,19 @@ const AllComment = ({ handleUpdate, needsReload }) => {
       {comment.map((comment) => (
         <div key={comment._id}>
           <p>{comment.text}</p>
+          {console.log("comment", comment.madeBy, "user", userId)}
+          {comment.madeBy === userId && (
+            <>
+              <button
+                onClick={() => {
+                  setVisible(!visible);
+                }}
+              >
+                Update Comment
+              </button>
+            </>
+          )}
+          {visible ? <p>Test</p> : null}
         </div>
       ))}
     </>
