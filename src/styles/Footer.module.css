@@ -1,39 +1,36 @@
-@import '../App.css';
-
+@import "../App.css";
 
 .footerWrapper {
-    min-height: 10vh;
-    position: relative;
+  max-height: 5vh;
+  position: relative;
 }
 
 .footer {
-    background-color: #ff0000;
-    padding: 2px 0;
-    flex-shrink: 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
+  background-color: #ff0000;
+  padding: 2px 0;
+  flex-shrink: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .columns {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .columns p {
-    flex: 1;
-    text-align: center;
-    padding: 2em;
+  flex: 1;
+  text-align: center;
+  padding: 2em;
 }
 
 @media only screen and (max-width: 768px) {
-    .columns p {
-        flex-basis: 100%;
-        padding: 1em;
-        font-size: 0.9em;
-    }
+  .columns p {
+    flex-basis: 100%;
+    padding: 1em;
+    font-size: 0.9em;
+  }
 }

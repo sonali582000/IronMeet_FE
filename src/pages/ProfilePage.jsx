@@ -4,7 +4,7 @@ import styles from "../styles/Profile.module.css";
 
 const ProfilePage = () => {
   const [user, setUser] = useState([]);
-  const { userId } = useContext(AuthContext);
+  const { userId, logout } = useContext(AuthContext);
   console.log(userId);
 
   const fetchUser = async () => {
@@ -30,6 +30,7 @@ const ProfilePage = () => {
 
   return (
     <div>
+      <button onClick={logout}>Log out</button>
       <h1>Users page</h1>
       <div className={styles.profileContainer}>
         <div className={styles.welcomeSection}>
