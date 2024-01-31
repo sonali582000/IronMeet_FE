@@ -11,6 +11,7 @@ const AuthForm = ({ isLogin = false }) => {
 
   const { saveToken } = useContext(AuthContext);
 
+
   const handleEmail = (event) => setEmail(event.target.value);
 
   const handleSubmit = async (event) => {
@@ -64,3 +65,4 @@ const AuthForm = ({ isLogin = false }) => {
 };
 
 export default AuthForm;
+
