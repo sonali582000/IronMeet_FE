@@ -39,9 +39,9 @@ function App() {
           <Route
             path="/event/new"
             element={
-              
+              <PrivateRoute>
                 <EventPage />
-             
+              </PrivateRoute>
             }
           />
           <Route
