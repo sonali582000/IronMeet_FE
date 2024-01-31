@@ -28,8 +28,6 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/eventDetail/:eventId" element={<EventDetailsPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/login" element={<LoginPage />} />
           <Route path="/event/new" element={<EventPage />} />
           <Route path="/event/:eventId" element={<UpdateEventPage />} />
           <Route path="/comment/:eventId" element={<AllComment />} />
