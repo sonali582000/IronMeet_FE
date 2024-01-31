@@ -13,10 +13,10 @@
 }
 
 * {
-  background-color: #eaced9;
+  background-color: var(--main-background);
   font-family: 'Bebas Neue', sans-serif;
   font-family: 'Dela Gothic One', cursive;
-  color: red;
+  color: var(--label-text-color);
   margin: 0;
   padding: 0;
 
