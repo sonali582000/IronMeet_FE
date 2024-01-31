@@ -19,6 +19,7 @@ function App() {
     <>
       <div className="App">
         <Navbar />
+        <div className="pageContainer">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/*" element={<h1>Page not found</h1>} />
@@ -53,6 +54,7 @@ function App() {
           />
           {/* <Route path="/comment/:eventId" element={<AllComment />} /> This is for testing purpose don't uncomment it */}
         </Routes>
+        </div>
         <Footer />
       </div>
     </>
