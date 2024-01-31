@@ -13,7 +13,6 @@ import EventPage from "./pages/EventPage";
 import UpdateEventPage from "./pages/UpdateEventPage";
 import AllComment from "./components/AllComment";
 import AllEventsPage from "./pages/AllEventsPage";
-import AllEventsPage from "./pages/AllEventsPage";
 
 function App() {
   return (
