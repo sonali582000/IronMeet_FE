@@ -1,30 +1,33 @@
 @import "../App.css";
 
-.footerWrapper {
-  max-height: 5vh;
-  position: relative;
-}
-
 .footer {
-  background-color: #ff0000;
-  padding: 2px 0;
-  flex-shrink: 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  margin-top: 20px;
+  height: 40px;
+  background-color: var(--orange-light);
+
 }
 
-.columns {
+
+.columns{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: transparent;
+  height: 100%;
+  color: var(--main-orange);
+  margin-inline: 80px;
+}
+.column, .column p, .copyrights p{
+  background-color: transparent;
 }
 
-.columns p {
-  flex: 1;
-  text-align: center;
-  padding: 2em;
+.copyrights{
+  background-color: var(--main-orange);
+  color: var(--main-background);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 768px) {

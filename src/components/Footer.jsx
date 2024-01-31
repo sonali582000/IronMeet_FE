@@ -24,6 +24,9 @@ function Footer() {
           </div>
         </div>
       </footer>
+      <div className={styles.copyrights}>
+        <p> &copy;2024 Iron Meet. All rights reserved.</p>
+      </div>
     </div>
   );
 }

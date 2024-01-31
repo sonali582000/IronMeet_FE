@@ -87,6 +87,19 @@
     }
 }
 
+.loadMore{
+    background-color: var(--main-green);
+    padding: 8px 12px;
+    border-radius: 8px;
+    color:var(--main-background);
+    border: solid 1px var(--main-green) ;
+    transition: background-color 0.3s, color 0.3s;
+}
+.loadMore:hover{
+    background-color: var(--light-green);
+    color: var(--main-green)
+}
+
 @media screen and (max-width: 480px) {
     .welcomeContainer h1 {
         font-size: 48px;

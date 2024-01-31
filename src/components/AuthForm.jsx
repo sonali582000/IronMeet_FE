@@ -6,16 +6,18 @@ import styles from "../styles/signUp.module.css";
 const AuthForm = ({ isLogin = false }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState(""); // Add state for username
 
   const navigate = useNavigate();
 
   const { saveToken } = useContext(AuthContext);
 
   const handleEmail = (event) => setEmail(event.target.value);
+  const handleUsername = (event) => setUsername(event.target.value); 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const reqBody = { email, password };
+    const reqBody = { email, password, username };
     console.log(import.meta.env.VITE_API_URL);
     try {
       const response = await fetch(
@@ -27,12 +29,10 @@ const AuthForm = ({ isLogin = false }) => {
         }
       );
       if (response.status === 201) {
-        // The user was created successully
         navigate("/");
         console.log("signed up");
       }
       if (response.status === 200) {
-        // The user was logged in successully
         navigate("/");
         const parsed = await response.json();
         console.log(parsed);
@@ -45,20 +45,41 @@ const AuthForm = ({ isLogin = false }) => {
 
   return (
     <form className={styles.signupForm} onSubmit={handleSubmit}>
-      <label >
+      <label>
         Email
-        <input className={styles.signupInput} type="email" required value={email} onChange={handleEmail} />
+        <input
+          className={styles.signupInput}
+          type="email"
+          required
+          value={email}
+          onChange={handleEmail}
+        />
       </label>
+      {!isLogin && (
+        <label>
+          Username
+          <input
+            className={styles.signupInput}
+            type="text"
+            required
+            value={username}
+            onChange={handleUsername}
+          />
+        </label>
+      )}
       <label>
         Password
-        <input className={styles.signupInput}
+        <input
+          className={styles.signupInput}
           type="password"
           required
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
       </label>
-      <button className={styles.signupButton} type="submit">{isLogin ? "Login" : "SignUp"}</button>
+      <button className={styles.signupButton} type="submit">
+        {isLogin ? "Login" : "SignUp"}
+      </button>
     </form>
   );
 };
