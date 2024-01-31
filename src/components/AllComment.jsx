@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Form, Link, useFetcher, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import axios from "axios";
 
@@ -9,6 +9,7 @@ const AllComment = ({ handleUpdate, needsReload }) => {
   const { fetchWithToken, userId } = useContext(AuthContext);
   const [commentId, setCommentId] = useState();
   const [text, setText] = useState("");
+  const [shouldReload, setShouldReload] = useState(false);
 
   const fetchComments = async () => {
     try {
@@ -27,8 +28,16 @@ const AllComment = ({ handleUpdate, needsReload }) => {
       fetchComments();
       fetchOneComment();
       handleSubmit();
+      deleteComment();
     }
   }, [eventId, needsReload]);
+
+  useEffect(() => {
+    if (shouldReload) {
+      window.location.reload();
+    }
+  }, [shouldReload]);
+
   // Function to toggle visibility for a specific comment
   const toggleVisibility = async (commentId) => {
     await fetchOneComment(commentId);
@@ -68,11 +77,29 @@ const AllComment = ({ handleUpdate, needsReload }) => {
       );
       if (response.status === 200) {
         alert("Successfully updated your comment ;)!");
+        setShouldReload(true);
       } else {
         console.log(response, "Something went wrong while updating comment!!");
       }
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const deleteComment = async (commentId) => {
+    try {
+      const responseDelete = await fetchWithToken(
+        `comment/${commentId}`,
+        "DELETE"
+      );
+      if (responseDelete.status === 204) {
+        alert("Successfully deleted your comment ;)");
+        setShouldReload(true);
+      } else {
+        alert("Error while deleting your comment ;(");
+      }
+    } catch (error) {
+      console.log("Error while deleting!!");
     }
   };
 
@@ -88,9 +115,7 @@ const AllComment = ({ handleUpdate, needsReload }) => {
               <button onClick={() => toggleVisibility(comment._id)}>
                 Update
               </button>
-              {/* <button onClick={() => toggleVisibility(comment._id)}>
-                Delete
-              </button> */}
+              <button onClick={() => deleteComment(comment._id)}>Delete</button>
               {comment.visible && (
                 <>
                   <form

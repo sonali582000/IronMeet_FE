@@ -1,19 +1,19 @@
 @import '../App.css';
 
-/* Navbar.module.css */
-
-/* Navbar.module.css */
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding-block: 20px;
+    margin: 0 80px 40px 80px;
 }
 
 .logo {
     width: 100px;
     height: auto;
+}
+.logoContainer button{
+    border: none;
 }
 
 .links {
@@ -28,6 +28,25 @@
 
 .link button {
     border: none;
+    color: var(--main-green);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.links .link:nth-last-child(2) button {
+    background-color:var(--main-orange) ;
+}
+
+
+.links .link:last-child button {
+    background-color: var(--main-green);
+}
+.links .link:last-child button, .links .link:nth-last-child(2) button{
+    color:var(--main-background);
+    padding: 4px 8px;
+    border-radius: 8px;
 }
 
 /* Media query for mobile */

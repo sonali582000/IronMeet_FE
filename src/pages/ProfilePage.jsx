@@ -4,13 +4,13 @@ import styles from "../styles/Profile.module.css";
 
 const ProfilePage = () => {
   const [user, setUser] = useState([]);
-  const { userId, logout } = useContext(AuthContext);
+  const { userId } = useContext(AuthContext);
   console.log(userId);
 
   const fetchUser = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/auth/user/${userId}`
+        `${import.meta.env.VITE_API_URL}/auth/${userId}`
       );
       if (response.ok) {
         const userData = await response.json();
@@ -38,7 +38,7 @@ const ProfilePage = () => {
       <div className={styles.profileContainer}>
         <div className={styles.welcomeSection}>
           <p>
-            Welcome <span className={styles.userEemail}>{user.email}</span>!
+            Welcome <span className={styles.userEemail}>{user.username}</span>!
           </p>
         </div>
         <div className={styles.profile_section}>
