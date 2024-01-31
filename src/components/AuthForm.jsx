@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import styles from "../styles/signUp.module.css";
 
 const AuthForm = ({ isLogin = false }) => {
   const [email, setEmail] = useState("");
@@ -43,21 +44,21 @@ const AuthForm = ({ isLogin = false }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form className={styles.signupForm} onSubmit={handleSubmit}>
+      <label >
         Email
-        <input type="email" required value={email} onChange={handleEmail} />
+        <input className={styles.signupInput} type="email" required value={email} onChange={handleEmail} />
       </label>
       <label>
         Password
-        <input
+        <input className={styles.signupInput}
           type="password"
           required
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
       </label>
-      <button type="submit">{isLogin ? "Login" : "Signup"}</button>
+      <button className={styles.signupButton} type="submit">{isLogin ? "Login" : "SignUp"}</button>
     </form>
   );
 };

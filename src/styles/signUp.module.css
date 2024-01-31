@@ -1,0 +1,51 @@
+@import '../App.css';
+
+.signupForm {
+    max-width: 400px;
+    margin: 5em auto;
+    /* Adjust margin for vertical alignment */
+    padding: 20px;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+}
+
+.signupForm label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.signupInput {
+    width: calc(100% - 150px);
+    /* Adjust width as per your design */
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ff0000;
+    border-radius: 2px;
+   
+}
+
+.signupButton {
+    padding: 20px 50px;
+    background-color: transparent;
+    color: rgb(255, 0, 0);
+    border: 2px solid #ff0000;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5em auto;
+    display: block;
+    font-size: 1em;
+
+}
+
+.signupButton:hover {
+    background-color: #002fff;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    .signupForm {
+        padding-top: 2em;
+    }
+}
