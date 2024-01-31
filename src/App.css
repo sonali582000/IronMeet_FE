@@ -14,17 +14,15 @@
 
 .pageContainer{
   margin-inline: 80px;
-  background-color: red;
 }
 
 * {
   background-color: var(--main-background);
-  font-family: 'Bebas Neue', sans-serif;
-  font-family: 'Dela Gothic One', cursive;
+  font-family: 'Arial','Roboto', sans-serif;
   color: var(--label-text-color);
   margin: 0;
   padding: 0;
-
+  line-height: 1.4;
 }
 
 

@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { EventContext } from '../contexts/EventContext';
 import EventCard from '../components/EventCard';
+import homepagepic from '../assets/irl_event.png'
+import styles from '../styles/HomePage.module.css'
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const eventsToShowInitially = 4;
@@ -39,32 +42,51 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>Search Events</h1>
-      <input 
-        type="text" 
-        placeholder="Search by title..." 
-        value={searchQuery} 
-        onChange={(e) => setSearchQuery(e.target.value)} 
-      />
-      <div>
-        {searchResults.map(event => (
-          <EventCard key={event._id} event={event} />
-        ))}
+      <div className={styles.welcomeContainer}>
+        <div className={styles.textContainer} >
+          <h1>Welcome To Iron Meet!</h1>
+          <span>Whatever your interest, from hiking and reading to networking and skill sharing, there are thousands of IronHackers who share it on Iron Meet. Events are happening every day—sign up to join the fun.</span></div>
+        <img src={homepagepic} alt="meetup" />
       </div>
+      <div className={styles.searchContainer}>
+        <div className={styles.searchTitles}>
+          <h3>Search Events</h3>
+          <Link to="/allEvents" className={styles.link} >all events</Link>
+        </div>
 
-      <h1>Recent Events</h1>
-      <ul>
-        {visibleEvents.map(event => (
-          <li key={event._id}>
-            <EventCard event={event} />
-          </li>
-        ))}
-      </ul>
+        <input
+          type="text"
+          placeholder="Search by title..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+  
+        <ul className={styles.cardContainers} >
+          {searchResults.map(event => (
+            <li key={event._id}>
+              <EventCard event={event} />
+            </li>
+          ))}
+        </ul>
+    
+        
+      </div>
+      <div className={styles.recentContainer}>
+        <h3>Recent Events</h3>
+        <ul className={styles.cardContainers}>
+          {visibleEvents.map(event => (
+            <li key={event._id}>
+              <EventCard event={event} />
+            </li>
+          ))}
+        </ul>
 
-      {visibleEvents.length < events.length && (
-        <button onClick={handleLoadMore}>Load More</button>
-      )}
+        {visibleEvents.length < events.length && (
+          <button onClick={handleLoadMore}>Load More</button>
+        )}
+      </div>
     </div>
+
   );
 };
 

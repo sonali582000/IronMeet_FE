@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../styles/event.module.css'
+import styles from '../styles/eventCard.module.css'
 
 const EventCard = ({ event }) => {
   return (
     <div className={styles.eventCard}>
-      <img src={event.imageUrl} alt="Event" className={styles.eventImage} />
+      <img src={event.photo} alt="Event" className={styles.eventImage} />
       <div className={styles.eventDetails}>
         <h3 className={styles.eventTitle}>{event.title}</h3>
         <p className={styles.eventDate}>Date: {event.date}</p>

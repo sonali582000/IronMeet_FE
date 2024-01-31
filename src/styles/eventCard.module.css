@@ -1,11 +1,15 @@
 .eventCard {
-    width: 300px;
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
+    height: 410px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
   }
   
   .eventImage {
@@ -16,6 +20,12 @@
   
   .eventDetails {
     margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    height:100%;
+    width: 100%;
   }
   
   .eventTitle {
@@ -26,24 +36,20 @@
   
   .eventDate {
     font-size: 14px;
-    color: #666666;
   }
   
   .eventLocation {
-    font-size: 14px;
-    color: #666666;
     margin-top: 10px;
   }
   
   .eventStatus {
-    font-size: 14px;
-    color: #666666;
     margin-top: 10px;
+
   }
   
   .moreButton {
-    background-color: #ff6b6b;
-    color: #ffffff;
+    background-color: var(--main-orange);
+    color: var(--main-background);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -53,6 +59,7 @@
   }
   
   .moreButton:hover {
-    background-color: #ff4040;
+    background-color: var(--orange-light);
+    color: var(--main-orange);
   }
   

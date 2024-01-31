@@ -1,35 +1,100 @@
 @import '../App.css';
 
-.welcomeTitle {
-    font-size: 1.4em;
-    text-align: center;
-}
-
-/* .homeButtonsContainer {
-display: flex;
-    flex-direction: column;
-    justify-content: center;
+.welcomeContainer {
+    display: flex;
     align-items: center;
-    height: 50vh;
-
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
 }
 
-
-
-.homeButton {
-    border: 2px solid #ff0000;
-    border-radius: 5px;
-    background-color: #eaced9;
-    color: #ff0000;
-    padding: 8px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    display: block;
-    width: 200px;
-    margin: 10px auto;
+.textContainer {
+    max-width: 50%;
+    text-align: center;
+    color: var(--text-color);
+    line-height: 1.4;
 }
 
-.homeButton:hover {
-    border-color: #666;
+.welcomeContainer h1 {
+    font-size: 68px;
+    font-weight: bold;
+    color: var(--main-green);
+    padding: 0 30px 20px 0;
+}
 
-} */
+.searchContainer {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.searchTitles {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+}
+
+.searchContainer h3,
+.recentContainer h3 {
+    padding-bottom: 20px;
+    color: var(--main-title-color);
+    font-size: 20px;
+}
+
+.searchContainer input {
+    width: 100%;
+    color: var(--text-color);
+    border-radius: 8px;
+    border: solid 1px var(--text-color);
+    height: 32px;
+    padding-inline: 5px;
+    margin-bottom: 15px;
+}
+
+.searchContainer input:focus-visible {
+    border: solid 1px var(--main-orange);
+    outline: none;
+}
+
+.searchTitles .link {
+    text-decoration: underline;
+    color: var(--main-green);
+}
+
+.cardContainers {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .welcomeContainer {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .welcomeContainer img {
+        max-width: 300px;
+    }
+
+    .cardContainers {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .welcomeContainer h1 {
+        font-size: 48px;
+    }
+
+    .cardContainers {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 20px;
+    }
+  
+}
