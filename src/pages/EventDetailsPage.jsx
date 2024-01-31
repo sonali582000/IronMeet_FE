@@ -13,7 +13,7 @@ const EventDetails = () => {
 
   useEffect(() => {
     fetchOneEvent(eventId);
-    // console.log(event)
+    // console.log(event);
   }, []);
 
   const handleDelete = () => {

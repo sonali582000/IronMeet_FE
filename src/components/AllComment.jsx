@@ -5,7 +5,7 @@ import { AuthContext } from "../contexts/AuthContext";
 const AllComment = () => {
   const { eventId } = useParams();
   const [comment, getComment] = useState();
-  const { fetchWithToken } = useContext(AuthContext);
+  const { fetchWithToken, userId } = useContext(AuthContext);
 
   const fetchComments = async () => {
     try {
@@ -29,7 +29,7 @@ const AllComment = () => {
       <h1>Comments</h1>
       {comment.map((comment) => (
         <div key={comment._id}>
-          <p>{comment.text}</p>
+          {userId === comment.madeBy && <p>{comment.text}</p> && <h1>Hello</h1>}
         </div>
       ))}
     </>
