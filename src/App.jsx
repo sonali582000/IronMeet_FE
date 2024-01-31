@@ -13,7 +13,6 @@ import EventPage from "./pages/EventPage";
 import UpdateEventPage from "./pages/UpdateEventPage";
 import AllComment from "./components/AllComment";
 import AllEventsPage from "./pages/AllEventsPage";
-import AllEventsPage from "./pages/AllEventsPage";
 
 function App() {
   return (
@@ -26,14 +25,15 @@ function App() {
           <Route path="/*" element={<h1>Page not found</h1>} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path='/signup' element={<SignUpPage />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/eventDetail/:eventId' element={<EventDetailsPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/eventDetail/:eventId" element={<EventDetailsPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/event/new" element={<EventPage />} />
           <Route path="/event/:eventId" element={<UpdateEventPage />} />
           <Route path="/comment/:eventId" element={<AllComment />} />
+          <Route path="/comment/:commentId" element={<UpdateEventPage />} />
         </Routes>
         <Footer />
       </div>

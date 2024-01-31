@@ -3,6 +3,7 @@ import { EventContext } from "../contexts/EventContext";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import AllComment from "../components/AllComment";
+import styles from "../styles/EventDetailsPage.module.css";
 
 const EventDetails = () => {
   const { fetchOneEvent, deleteEvent, event } = useContext(EventContext);
@@ -72,30 +73,40 @@ const EventDetails = () => {
 
   return (
     <>
-      <h1>Event details</h1>
-      {event && (
-        <>
-          <p>Title: {event.title}</p>
-          <p>Description: {event.description}</p>
-          <p>Location: {event.location}</p>
-          <p>Type: {event.type}</p>
-          <p>Status: {event.status}</p>
-          <p>Photo: {event.photo}</p>
-        </>
-      )}
+      <div className={styles.eventInfo}>
+        <h1 className={styles.eventTitle}>Event Infos</h1>
+        <div className={styles.eventContainer}>
+          {event && (
+            <>
+              <p>Title: {event.title}</p>
+              <p>Description: {event.description}</p>
+              <p>Location: {event.location}</p>
+              <p>Type: {event.type}</p>
+              <p>Status: {event.status}</p>
+              <p>Photo: {event.photo}</p>
+            </>
+          )}
 
-      {event.createdBy === userId && (
-        <>
-          <button onClick={handleDelete}>Delete</button>
-          <Link to={`/event/${eventId}`}>
-            <button>Update</button>
-          </Link>
-          <Link to="/event/new">
-            <button>Create</button>
-          </Link>
-        </>
-      )}
+          <div className={styles.eventButton}>
+            {event.createdBy === userId && (
+              <>
+                <button className={styles.deleteButton} onClick={handleDelete}>
+                  Delete
+                </button>
+                <Link to={`/event/${eventId}`}>
+                  <button className={styles.updateEventButton}>Update</button>
+                </Link>
+                <Link to="/event/new">
+                  <button className={styles.CreateEventButton}>Create</button>
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+
       <form
+        className={styles.commentForm}
         style={{ display: "flex", flexDirection: "column" }}
         onSubmit={handleSubmit}
       >
@@ -106,10 +117,16 @@ const EventDetails = () => {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button className={styles.submitButton} type="submit">
+          Submit
+        </button>
       </form>
 
-      <AllComment handleUpdate={handleUpdate} needsReload={needsReload} />
+      <AllComment
+        className={styles.commentsContainer}
+        handleUpdate={handleUpdate}
+        needsReload={needsReload}
+      />
     </>
   );
 };
