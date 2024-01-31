@@ -47,7 +47,7 @@
 }
 
 .eventStatus {
-  margin-top: 10px;
+  margin-block: 10px;
   color: var(--main-green);
 
 }
