@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useFetcher, useParams } from "react-router-dom";
+import { Link, useFetcher, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
 const AllComment = ({ handleUpdate, needsReload }) => {
@@ -37,13 +37,15 @@ const AllComment = ({ handleUpdate, needsReload }) => {
           {console.log("comment", comment.madeBy, "user", userId)}
           {comment.madeBy === userId && (
             <>
-              <button
-                onClick={() => {
-                  setVisible(!visible);
-                }}
-              >
-                Update Comment
-              </button>
+              <Link to={`/comment/${comment._id}`}>
+                <button
+                  onClick={() => {
+                    setVisible(!visible);
+                  }}
+                >
+                  Update Comment
+                </button>
+              </Link>
             </>
           )}
           {visible ? <p>Test</p> : null}
