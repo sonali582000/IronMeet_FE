@@ -7,6 +7,8 @@ const HomePage = () => {
   const eventsPerLoad = 4;
   const { events, fetchEvents } = useContext(EventContext);
   const [visibleEvents, setVisibleEvents] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     fetchEvents();
@@ -19,6 +21,17 @@ const HomePage = () => {
     }
   }, [events]);
 
+  useEffect(() => {
+    if (searchQuery.trim() === '') {
+      setSearchResults([]);
+    } else {
+      const filteredEvents = events.filter(event =>
+        event.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setSearchResults(filteredEvents);
+    }
+  }, [searchQuery, events]);
+
   const handleLoadMore = () => {
     const nextEvents = events.slice(visibleEvents.length, visibleEvents.length + eventsPerLoad);
     setVisibleEvents(prevEvents => [...prevEvents, ...nextEvents]);
@@ -26,13 +39,25 @@ const HomePage = () => {
 
   return (
     <div style={{ padding: 200 }}>
+      <h1>Search Events</h1>
+      <input 
+        type="text" 
+        placeholder="Search by title..." 
+        value={searchQuery} 
+        onChange={(e) => setSearchQuery(e.target.value)} 
+      />
+      <div>
+        {searchResults.map(event => (
+          <EventCard key={event._id} event={event} />
+        ))}
+      </div>
+
       <h1>Recent Events</h1>
       <ul>
         {visibleEvents.map(event => (
           <li key={event._id}>
             <EventCard event={event} />
           </li>
-
         ))}
       </ul>
 
