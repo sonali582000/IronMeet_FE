@@ -1,19 +1,19 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import styles from "../styles/signUp.module.css";
 
 const AuthForm = ({ isLogin = false }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState(""); // Add state for username
+  const [username, setUsername] = useState("");
 
   const navigate = useNavigate();
 
   const { saveToken } = useContext(AuthContext);
 
   const handleEmail = (event) => setEmail(event.target.value);
-  const handleUsername = (event) => setUsername(event.target.value); 
+  const handleUsername = (event) => setUsername(event.target.value);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,43 +44,51 @@ const AuthForm = ({ isLogin = false }) => {
   };
 
   return (
-    <form className={styles.signupForm} onSubmit={handleSubmit}>
-      <label>
-        Email
-        <input
-          className={styles.signupInput}
-          type="email"
-          required
-          value={email}
-          onChange={handleEmail}
-        />
-      </label>
-      {!isLogin && (
+    <div className={styles.formContainer}>
+      <form className={styles.signupForm} onSubmit={handleSubmit}>
         <label>
-          Username
+          <span>Email</span>
           <input
             className={styles.signupInput}
-            type="text"
+            type="email"
             required
-            value={username}
-            onChange={handleUsername}
+            value={email}
+            onChange={handleEmail}
           />
         </label>
-      )}
-      <label>
-        Password
-        <input
-          className={styles.signupInput}
-          type="password"
-          required
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-      </label>
-      <button className={styles.signupButton} type="submit">
-        {isLogin ? "Login" : "SignUp"}
-      </button>
-    </form>
+        {!isLogin && (
+          <label>
+            <span>Username</span>
+            <input
+              className={styles.signupInput}
+              type="text"
+              required
+              value={username}
+              onChange={handleUsername}
+            />
+          </label>
+        )}
+        <label>
+          <span>Password</span>
+          <input
+            className={styles.signupInput}
+            type="password"
+            required
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </label>
+        <button className={styles.signupButton} type="submit">
+          {isLogin ? "Login" : "SignUp"}
+        </button>
+        {
+          isLogin ? <div className={styles.navigateLinks}>Not a member, yet? <Link to="/signup"><span>SignUp</span></Link></div>
+            : <div className={styles.navigateLinks}><span>Already a member?</span> <Link to="/login"><span>Login</span></Link></div>
+        }
+
+      </form>
+    </div>
+
   );
 };
 
