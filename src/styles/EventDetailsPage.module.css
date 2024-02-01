@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60vh; /* Set height to 100% of the viewport height */
+  height: 100vh; /* Set height to 100% of the viewport height */
   flex-direction: column;
   justify-content: space-between;
 }
