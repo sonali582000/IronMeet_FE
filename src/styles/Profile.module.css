@@ -2,11 +2,13 @@
 
 
 .profileContainer {
-    max-width: 1300px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ff0000;
+    border: 2px solid var(--main-green);
     border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 /* .welcomeSection {
@@ -17,9 +19,15 @@
     margin-bottom: 20px;
 } */
 
-h1{
+/* h1 {
     margin: 0.5em;
+} */
+
+.userEmail{
+    font-size: 3em;
+    
 }
+
 .profilePicture {
     width: 200px;
     height: 200px;
@@ -45,6 +53,27 @@ h1{
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
+}
+
+.buttonWrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 3em;
+
+}
+
+.buttonLogOut {
+    background-color: var(--main-green);
+    padding: 4px 8px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+
+}
+
+.userPageTitle {
+    padding-bottom: 1em;
+    font-size: 2em;
 }
 
 @media only screen and (max-width: 768px) {

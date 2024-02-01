@@ -12,6 +12,7 @@ const AuthForm = ({ isLogin = false }) => {
 
   const { saveToken } = useContext(AuthContext);
 
+
   const handleEmail = (event) => setEmail(event.target.value);
   const handleUsername = (event) => setUsername(event.target.value);
 
@@ -93,3 +94,4 @@ const AuthForm = ({ isLogin = false }) => {
 };
 
 export default AuthForm;
+
