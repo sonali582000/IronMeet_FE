@@ -83,6 +83,7 @@ const EventDetails = () => {
                 src={event.photo}
                 alt={event.title}
               ></img>
+              <br />
 
               <div>
                 <h2 className={styles.h2}>Event Infos</h2>
@@ -102,23 +103,31 @@ const EventDetails = () => {
 
                 <div className={styles.labelContainer}>
                   <label className={styles.outline}>Type: {event.type}</label>
+                  <br />
+                  <br />
                   <label className={styles.fill}>Status: {event.status}</label>
                 </div>
+
                 <div className={styles.eventButton}>
                   {event.createdBy === userId && (
                     <>
-                      {/*   <button className={styles.deleteButton} onClick={handleDelete}>
-                  Delete
-                </button>
-            */}
                       <Link to={`/event/${eventId}`}>
                         <button className={styles.updateEventButton}>
                           Update
                         </button>
                       </Link>
-                      <Link to="/event/new">
+                      {/*  <Link to="/event/new">
                         <button className={styles.CreateEventButton}>
                           Create
+                        </button>
+                      </Link>
+                      */}
+                      <Link to="/allEvents">
+                        <button
+                          className={styles.deleteButton}
+                          onClick={handleDelete}
+                        >
+                          Delete
                         </button>
                       </Link>
                     </>
