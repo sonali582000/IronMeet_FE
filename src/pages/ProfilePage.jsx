@@ -30,25 +30,24 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <div className={styles.buttonWrapper}>
-        <button className={styles.buttonLogOut}  onClick={logout}>Log out</button>
-
+      <div className={styles.userPageTitle}>        <h1>Users page</h1>
       </div>
-      <button onClick={logout}>Log out</button>
-      <h1>Users page</h1>
+
+      
       <div className={styles.profileContainer}>
         <div className={styles.welcomeSection}>
-          <p>
-            Welcome <span className={styles.userEemail}>{user.username}</span>!
+          <p className={styles.userEmail}>
+            Welcome Ironhacker! <span className={styles.userEmail}>{user.userName}</span>!
           </p>
         </div>
         <div className={styles.profile_section}>
           <span className={styles.profilePicture}>{user.profile_picture}</span>
         </div>
-        <div className={styles.eventSection}>
-          <h2>Events you are interested in:</h2>
-          {/* display events here */}
-        </div>
+     
+      </div>
+      <div className={styles.buttonWrapper}>
+        <button className={styles.buttonLogOut} onClick={logout}>Log out</button>
+
       </div>
     </div>
   );
