@@ -73,62 +73,88 @@ const EventDetails = () => {
   };
 
   return (
-    <>
-      <div className={styles.eventInfo}>
-        <h1 className={styles.eventTitle}>Event Infos</h1>
-        <div className={styles.eventContainer}>
+    <div className={styles.eventDetailPageContainer}>
+      <div className={styles.container}>
+        <div className={styles.wrapper}>
           {event && (
-            <>
-              <p>Title: {event.title}</p>
-              <p>Description: {event.description}</p>
-              <p>Location: {event.location}</p>
-              <p>Type: {event.type}</p>
-              <p>Status: {event.status}</p>
-              <img src={event.photo} alt={event.title} />
-            </>
-          )}
+            <div className={styles.eventMiddleContainer}>
+              <img
+                className={styles.bannerImage}
+                src={event.photo}
+                alt={event.title}
+              ></img>
 
-          <div className={styles.eventButton}>
-            {event.createdBy === userId && (
-              <>
-                <button className={styles.deleteButton} onClick={handleDelete}>
+              <div>
+                <h2 className={styles.h2}>Event Infos</h2>
+                <br />
+                <p className={styles.p}>
+                  {" "}
+                  Event: <br />
+                  {event.title}
+                </p>
+                <br />
+                <p className={styles.p}>
+                  Description: <br />
+                  {event.description}
+                </p>
+                <br />
+                <p className={styles.p}>Location: {event.location}</p>
+
+                <div className={styles.labelContainer}>
+                  <label className={styles.outline}>Type: {event.type}</label>
+                  <label className={styles.fill}>Status: {event.status}</label>
+                </div>
+                <div className={styles.eventButton}>
+                  {event.createdBy === userId && (
+                    <>
+                      {/*   <button className={styles.deleteButton} onClick={handleDelete}>
                   Delete
                 </button>
-                <Link to={`/event/${eventId}`}>
-                  <button className={styles.updateEventButton}>Update</button>
-                </Link>
-                <Link to="/event/new">
-                  <button className={styles.CreateEventButton}>Create</button>
-                </Link>
-              </>
-            )}
-          </div>
+            */}
+                      <Link to={`/event/${eventId}`}>
+                        <button className={styles.updateEventButton}>
+                          Update
+                        </button>
+                      </Link>
+                      <Link to="/event/new">
+                        <button className={styles.CreateEventButton}>
+                          Create
+                        </button>
+                      </Link>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
-      <form
-        className={styles.commentForm}
-        style={{ display: "flex", flexDirection: "column" }}
-        onSubmit={handleSubmit}
-      >
-        <textarea
-          rows={2}
-          cols={50}
-          placeholder="Your Comments"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <button className={styles.submitButton} type="submit">
-          Submit
-        </button>
-      </form>
+      <div className={styles.commentsContainer}>
+        <form
+          className={styles.commentForm}
+          style={{ display: "flex", flexDirection: "column" }}
+          onSubmit={handleSubmit}
+        >
+          <textarea
+            rows={2}
+            cols={50}
+            placeholder="Your Comments"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+          <button className={styles.submitButton} type="submit">
+            Submit
+          </button>
+        </form>
 
-      <AllComment
-        className={styles.commentsContainer}
-        handleUpdate={handleUpdate}
-        needsReload={needsReload}
-      />
-    </>
+        <AllComment
+          className={styles.commentsContainer}
+          handleUpdate={handleUpdate}
+          needsReload={needsReload}
+        />
+      </div>
+    </div>
   );
 };
 

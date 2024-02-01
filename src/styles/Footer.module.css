@@ -4,24 +4,24 @@
   margin-top: 20px;
   height: 40px;
   background-color: var(--orange-light);
-
 }
 
-
-.columns{
+.columns {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: transparent;
   height: 100%;
   color: var(--main-orange);
   margin-inline: 80px;
 }
-.column, .column p, .copyrights p{
+.column,
+.column p,
+.copyrights p {
   background-color: transparent;
 }
 
-.copyrights{
+.copyrights {
   background-color: var(--main-orange);
   color: var(--main-background);
   padding: 2px;
@@ -33,7 +33,7 @@
 @media only screen and (max-width: 768px) {
   .columns p {
     flex-basis: 100%;
-    padding: 1em;
-    font-size: 0.9em;
+    padding: 0.5em;
+    font-size: 0.8em;
   }
 }
