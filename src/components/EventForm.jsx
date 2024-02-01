@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import styles from "../styles/EventForm.module.css";
+import styles from "../styles/eventForm.module.css"
 
 const EventForm = ({ sameUser = false }) => {
   const [title, setTitle] = useState("");

@@ -82,7 +82,7 @@ const HomePage = () => {
         </ul>
 
         {visibleEvents.length < events.length && (
-          <button onClick={handleLoadMore}>Load More</button>
+          <button className={styles.loadMore} onClick={handleLoadMore}>Load More</button>
         )}
       </div>
     </div>
