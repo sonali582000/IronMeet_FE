@@ -31,20 +31,15 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <div className={styles.userPageTitle}>        <h1>Users page</h1>
-      </div>
 
-      
       <div className={styles.profileContainer}>
         <div className={styles.welcomeSection}>
-          <p className={styles.userEmail}>
-            Welcome Ironhacker! <span className={styles.userEmail}>{user.username}</span>!
+          <p className={styles.username}>
+            Welcome {user.username}
           </p>
         </div>
-        <div className={styles.profile_section}>
-          <span className={styles.profilePicture}>{user.profile_picture}</span>
-        </div>
-     
+
+
       </div>
       <div className={styles.buttonWrapper}>
         <button className={styles.buttonLogOut} onClick={logout}>Log out</button>

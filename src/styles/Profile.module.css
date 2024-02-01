@@ -2,13 +2,14 @@
 
 
 .profileContainer {
-    max-width: 1000px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
     border: 2px solid var(--main-green);
     border-radius: 5px;
     display: flex;
     justify-content: space-evenly;
+    height: 40vh;
 }
 
 /* .welcomeSection {
@@ -75,10 +76,15 @@
     padding-bottom: 1em;
     font-size: 2em;
 }
+.username{
+    font-size: 2em;
+    color: var(--main-green);
+}
 
 @media only screen and (max-width: 768px) {
     .profileContainer {
-        height: 400px;
+        height: 200px;
+        max-width: 400px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
