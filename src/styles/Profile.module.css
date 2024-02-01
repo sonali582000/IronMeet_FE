@@ -10,6 +10,8 @@
     display: flex;
     justify-content: space-evenly;
     height: 40vh;
+    justify-content: center;
+    align-items: center;
 }
 
 /* .welcomeSection {
@@ -24,9 +26,9 @@
     margin: 0.5em;
 } */
 
-.userEmail{
+.userEmail {
     font-size: 3em;
-    
+
 }
 
 .profilePicture {
@@ -76,13 +78,16 @@
     padding-bottom: 1em;
     font-size: 2em;
 }
-.username{
+
+.username {
     font-size: 2em;
     color: var(--main-green);
 }
 
 @media only screen and (max-width: 768px) {
-    .profileContainer, .username{
+
+    .profileContainer,
+    .username {
         height: 200px;
         max-width: 400px;
         display: flex;
