@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import styles from "../styles/eventForm.module.css"
+import styles from "../styles/eventForm.module.css";
 
 const EventForm = ({ sameUser = false }) => {
   const [title, setTitle] = useState("");
@@ -15,6 +15,7 @@ const EventForm = ({ sameUser = false }) => {
   const [photo, setPhoto] = useState("");
   const { fetchWithToken } = useContext(AuthContext);
   const { eventId } = useParams();
+  const navigate = useNavigate();
 
   const getOneEvent = async () => {
     try {
@@ -68,6 +69,7 @@ const EventForm = ({ sameUser = false }) => {
       if (response.status === 201) {
         // const newEvent = response.data;
         alert("Successfully created an Event!");
+        navigate("/allEvents");
       } else {
         console.log(response, "Something went wrong while creating an event");
       }
@@ -86,80 +88,77 @@ const EventForm = ({ sameUser = false }) => {
     <>
       <h1>{sameUser ? "Create an Event" : "Update an Event"}</h1>
       <div className={styles.formWrapper}>
-      <form
-       className={styles.eventFormContainer}
-        onSubmit={handleSubmit}
-      >
-        <label>
-          Title
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </label>
-        <label>
-          Description
-          <textarea
-            rows={1}
-            cols={10}
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
-        <label>
-          Date
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </label>
-        <label>
-          Category
-          <input
-            type="text"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
-        </label>
-        <label>
-          Location
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-          />
-        </label>
-        <label>
-          Type
-          <select value={type} onChange={(e) => setType(e.target.value)}>
-            <option value="">Select an option</option>
-            <option value="in-person">in-person</option>
-            <option value="virtual">virtual</option>
-            <option value="hybrid">hybrid</option>
-          </select>
-        </label>
-        <label>
-          Status
-          <select value={status} onChange={(e) => setStatus(e.target.value)}>
-            <option value="">Select an option</option>
-            <option value="upcoming">upcoming</option>
-            <option value="ongoing">ongoing</option>
-            <option value="completed">completed</option>
-            <option value="canceled">canceled</option>
-          </select>
-        </label>
-        <label>
-          Photo
-          <input
-            type="text"
-            value={photo}
-            onChange={(e) => setPhoto(e.target.value)}
-          />
-        </label>
-        <button type="submit">{sameUser ? "Create Event" : "Update"}</button>
-      </form>
+        <form className={styles.eventFormContainer} onSubmit={handleSubmit}>
+          <label>
+            Title
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </label>
+          <label>
+            Description
+            <textarea
+              rows={1}
+              cols={10}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </label>
+          <label>
+            Date
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </label>
+          <label>
+            Category
+            <input
+              type="text"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            />
+          </label>
+          <label>
+            Location
+            <input
+              type="text"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
+          </label>
+          <label>
+            Type
+            <select value={type} onChange={(e) => setType(e.target.value)}>
+              <option value="">Select an option</option>
+              <option value="in-person">in-person</option>
+              <option value="virtual">virtual</option>
+              <option value="hybrid">hybrid</option>
+            </select>
+          </label>
+          <label>
+            Status
+            <select value={status} onChange={(e) => setStatus(e.target.value)}>
+              <option value="">Select an option</option>
+              <option value="upcoming">upcoming</option>
+              <option value="ongoing">ongoing</option>
+              <option value="completed">completed</option>
+              <option value="canceled">canceled</option>
+            </select>
+          </label>
+          <label>
+            Photo
+            <input
+              type="text"
+              value={photo}
+              onChange={(e) => setPhoto(e.target.value)}
+            />
+          </label>
+          <button type="submit">{sameUser ? "Create Event" : "Update"}</button>
+        </form>
       </div>
     </>
   );

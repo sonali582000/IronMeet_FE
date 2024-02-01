@@ -1,86 +1,138 @@
-/* YourComponentStyles.css */
+.eventDetailPageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Set height to 100% of the viewport height */
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-.eventInfo {
+.container {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-  height: 410px;
+  padding: 15px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  height: 50%;
+  width: 70%;
 }
 
-.eventTitle {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333333;
+.wrapper {
+  width: 85%;
+  height: 100%;
 }
-
-.eventContainer {
-  margin-top: 20px;
+.eventMiddleContainer {
+  margin-top: 15px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  flex-direction: row;
+}
+.bannerImage {
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  width: 50%;
+  border-radius: 12px;
+  border: 1px solid #fafafa;
+}
+
+.h2 {
+  font-family: "Righteous", sans-serif;
+  color: #00798a;
+  text-transform: uppercase;
+  font-size: 2rem;
+  justify-content: center;
+}
+
+.p {
+  color: #00798a;
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 150%;
+  letter-spacing: 2px;
+}
+
+.labelContainer {
+  margin-top: 18px;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  cursor: pointer;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
 }
 
-.eventDetails {
-  font-size: 14px;
+.outline {
+  padding-right: 10px;
+  background: transparent;
+  color: #00798a;
+  border: 1px solid #00798a;
+  transition: all 0.3s ease;
 }
 
-.eventImage {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-top: 10px;
+.outline:hover {
+  transform: scale(1.125);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.fill {
+  background: #00798a;
+  color: rgba(255, 255, 255, 0.95);
+  filter: drop-shadow(0);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.fill:hover {
+  transform: scale(1.125);
+  border-color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.125));
+  transition: all 0.3s ease;
 }
 
 .eventButton {
-  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7%;
+  padding-left: 10%;
+  padding-right: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  right: 10%;
 }
 
-.deleteButton {
-  background-color: var(--main-orange);
-  color: var(--main-background);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-.deleteButton:hover {
-  background-color: var(--orange-light);
-  color: var(--main-orange);
-}
-
+.deleteButton,
 .updateEventButton,
 .CreateEventButton {
-  /* Add common styles for update and create buttons */
   background-color: var(--main-orange);
   color: var(--main-background);
   border: none;
   padding: 10px 20px;
+  width: calc(100% - 10%); /* Set a specific width for all buttons */
+  box-sizing: border-box;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   transition: background-color 0.3s ease;
+  margin-bottom: 10px;
 }
 
+.deleteButton:hover,
 .updateEventButton:hover,
 .CreateEventButton:hover {
-  /* Add common styles for hover effect */
   background-color: var(--orange-light);
   color: var(--main-orange);
-}
-
-.updateEventButton {
-  margin-right: 10px;
 }
