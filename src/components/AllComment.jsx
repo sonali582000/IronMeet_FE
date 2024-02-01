@@ -1,7 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import axios from "axios";
+import styles from "../styles/allComment.module.css";
+import avatar from "../images/astronaut.png";
 
 const AllComment = ({ handleUpdate, needsReload }) => {
   const { eventId } = useParams();
@@ -108,33 +110,51 @@ const AllComment = ({ handleUpdate, needsReload }) => {
       <h1>Comments</h1>
       {comments.map((comment) => (
         <div key={comment._id}>
-          <p>{comment.text}</p>
+          <div className={styles.commentCard}>
+            <div className={styles.userInfo}>
+              <img
+                src={avatar}
+                alt="User Avatar"
+                className={styles.userAvatar}
+              />
+            </div>
+            <p className={styles.commentText}>{comment.text}</p>
+            {/* <button className={styles.likeButton}></button>
+            <button className={styles.replyButton}></button> */}
+            {comment.madeBy === userId && (
+              <>
+                <button
+                  onClick={() => toggleVisibility(comment._id)}
+                  className={styles.updateButton}
+                ></button>
+                <button
+                  onClick={() => deleteComment(comment._id)}
+                  className={styles.deleteButton}
+                ></button>
 
-          {comment.madeBy === userId && (
-            <>
-              <button onClick={() => toggleVisibility(comment._id)}>
-                Update
-              </button>
-              <button onClick={() => deleteComment(comment._id)}>Delete</button>
-              {comment.visible && (
-                <>
-                  <form
-                    style={{ display: "flex", flexDirection: "column" }}
-                    onSubmit={handleSubmit}
-                  >
-                    <textarea
-                      rows={2}
-                      cols={20}
-                      placeholder="Your Comments"
-                      value={text}
-                      onChange={(e) => setText(e.target.value)}
-                    />
-                    <button type="submit">Submit</button>
-                  </form>
-                </>
-              )}
-            </>
-          )}
+                {comment.visible && (
+                  <>
+                    <form
+                      onSubmit={handleSubmit}
+                      className={styles.formContainer}
+                    >
+                      <textarea
+                        rows={2}
+                        cols={20}
+                        placeholder="Your Comments hello"
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                        className={styles.comment}
+                      />
+                      <button type="submit" className={styles.submit}>
+                        Submit
+                      </button>
+                    </form>
+                  </>
+                )}
+              </>
+            )}
+          </div>
         </div>
       ))}
     </>

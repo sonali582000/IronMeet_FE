@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.profile {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.profile img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile h2 {
+  margin: 5px 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.profile p {
+  margin: 0;
+  color: #666;
+}
+
+.profile a {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.profile a img {
+  width: 30px;
+  height: auto;
+  margin: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile a img:hover {
+  transform: scale(1.2);
+}
+
+.title {
+  font-size: 20px;
+  text-align: center;
+  padding: 20px 0;
+  color: var(--main-green);
+}
