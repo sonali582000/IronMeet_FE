@@ -82,13 +82,14 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .profileContainer {
+    .profileContainer, .username{
         height: 200px;
         max-width: 400px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
+        justify-content: center;
+        font-size: 1em;
     }
 
 }
