@@ -30,13 +30,16 @@ const AuthForm = ({ isLogin = false }) => {
       );
       if (response.status === 201) {
         navigate("/login");
-        console.log("signed up");
+        alert("You have successfully loggedin ;)");
       }
       if (response.status === 200) {
         navigate("/");
+        alert("You have successfully signed in");
         const parsed = await response.json();
         console.log(parsed);
         saveToken(parsed.token);
+      } else {
+        alert("Wrong username or password !!! ;)");
       }
     } catch (error) {
       console.log(error);
