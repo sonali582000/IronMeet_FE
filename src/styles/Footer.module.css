@@ -6,10 +6,10 @@
 }
 
 .footer {
-  background-color: #ff0000;
+  background-color: #00798a;
   padding: 2px 0;
   flex-shrink: 0;
-  position: fixed;
+  /*position: fixed;*/
   bottom: 0;
   left: 0;
   right: 0;
@@ -24,13 +24,18 @@
 .columns p {
   flex: 1;
   text-align: center;
-  padding: 2em;
+  padding: 0.5em;
+
+  line-height: 1.6;
+  text-align: center;
+  color: #ec848e; /* Meetup primary color */
+  margin: 0;
 }
 
 @media only screen and (max-width: 768px) {
   .columns p {
     flex-basis: 100%;
-    padding: 1em;
-    font-size: 0.9em;
+    padding: 0.5em;
+    font-size: 0.8em;
   }
 }

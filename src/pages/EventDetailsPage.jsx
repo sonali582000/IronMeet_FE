@@ -73,19 +73,26 @@ const EventDetails = () => {
   };
 
   return (
-    <>
-      <div className={styles.eventInfo}>
-        <h1 className={styles.eventTitle}>Event Infos</h1>
-        <div className={styles.eventContainer}>
+    <div className={styles.eventDetailPageContainer}>
+      <div className={styles.eventContainer}>
+        <div className={styles.eventInfo}>
           {event && (
-            <>
-              <p>Title: {event.title}</p>
-              <p>Description: {event.description}</p>
-              <p>Location: {event.location}</p>
-              <p>Type: {event.type}</p>
-              <p>Status: {event.status}</p>
-              <img src={event.photo} alt={event.title} />
-            </>
+            <div className={styles.eventMiddleContainer}>
+              <img
+                className={styles.eventImage}
+                src={event.photo}
+                alt={event.title}
+              ></img>
+
+              <div className={styles.textContainer}>
+                <p className={styles.eventTitle}>Event Infos</p>
+                <p>Title: {event.title}</p>
+                <p>Description: {event.description}</p>
+                <p>Location: {event.location}</p>
+                <p>Type: {event.type}</p>
+                <p>Status: {event.status}</p>
+              </div>
+            </div>
           )}
 
           <div className={styles.eventButton}>
@@ -106,29 +113,31 @@ const EventDetails = () => {
         </div>
       </div>
 
-      <form
-        className={styles.commentForm}
-        style={{ display: "flex", flexDirection: "column" }}
-        onSubmit={handleSubmit}
-      >
-        <textarea
-          rows={2}
-          cols={50}
-          placeholder="Your Comments"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <button className={styles.submitButton} type="submit">
-          Submit
-        </button>
-      </form>
+      <div className={styles.commentsContainer}>
+        <form
+          className={styles.commentForm}
+          style={{ display: "flex", flexDirection: "column" }}
+          onSubmit={handleSubmit}
+        >
+          <textarea
+            rows={2}
+            cols={50}
+            placeholder="Your Comments"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+          <button className={styles.submitButton} type="submit">
+            Submit
+          </button>
+        </form>
 
-      <AllComment
-        className={styles.commentsContainer}
-        handleUpdate={handleUpdate}
-        needsReload={needsReload}
-      />
-    </>
+        <AllComment
+          className={styles.commentsContainer}
+          handleUpdate={handleUpdate}
+          needsReload={needsReload}
+        />
+      </div>
+    </div>
   );
 };
 

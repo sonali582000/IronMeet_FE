@@ -1,33 +1,44 @@
 /* YourComponentStyles.css */
 
-.eventInfo {
+.eventDetailPageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Set height to 100% of the viewport height */
+  flex-direction: column;
+}
+
+.eventContainer {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 15px;
   margin-bottom: 20px;
-  height: 410px;
+  height: 50%;
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
 }
 
-.eventTitle {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333333;
-}
-
-.eventContainer {
-  margin-top: 20px;
+.eventInfo {
+  margin-top: 10px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  flex-direction: column;
+  flex-direction: row;
   height: 100%;
   width: 100%;
+}
+
+.eventMiddleContainer {
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 .eventDetails {
@@ -35,52 +46,67 @@
 }
 
 .eventImage {
-  width: 100%;
+  width: 40%;
+  padding-left: 10%;
+  padding-right: 10%;
   height: auto;
   border-radius: 8px;
   margin-top: 10px;
+  margin-bottom: 10px;
+}
+.textContainer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.eventTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00798a;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+  color: #ec848e; /* Meetup primary color */
+  margin: 0;
+}
+
+p:hover {
+  text-decoration: underline;
+  color: #004466; /* Meetup hover color */
 }
 
 .eventButton {
-  margin-top: 10px;
+  margin-top: 7%;
+  padding-left: 10%;
+  padding-right: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  right: 10%;
 }
 
-.deleteButton {
-  background-color: var(--main-orange);
-  color: var(--main-background);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-.deleteButton:hover {
-  background-color: var(--orange-light);
-  color: var(--main-orange);
-}
-
+.deleteButton,
 .updateEventButton,
 .CreateEventButton {
-  /* Add common styles for update and create buttons */
   background-color: var(--main-orange);
   color: var(--main-background);
   border: none;
   padding: 10px 20px;
+  width: calc(100% - 10%); /* Set a specific width for all buttons */
+  box-sizing: border-box;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   transition: background-color 0.3s ease;
+  margin-bottom: 10px;
 }
 
+.deleteButton:hover,
 .updateEventButton:hover,
 .CreateEventButton:hover {
-  /* Add common styles for hover effect */
   background-color: var(--orange-light);
   color: var(--main-orange);
-}
-
-.updateEventButton {
-  margin-right: 10px;
 }
