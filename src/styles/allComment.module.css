@@ -1,0 +1,171 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.comment {
+  width: 100%;
+  max-width: 500px;
+  height: 150px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  font-size: 14px;
+}
+
+.comment :focus {
+  outline: none;
+  border-color: var(--main-green);
+}
+
+.submit {
+  width: 100%;
+  max-width: 100px;
+  padding: 10px 10px;
+  background-color: var(--main-green);
+  color: var(--light-green);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit :hover {
+  background-color: var(--main-green);
+}
+
+.containerAllComment {
+  width: 45%;
+}
+
+.commentCard {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.userDetails {
+  flex: 1;
+}
+
+.userName {
+  margin: 0;
+  color: #333;
+}
+
+.userRole {
+  margin: 0;
+  color: #666;
+}
+
+.commentText {
+  margin-bottom: 10px;
+}
+
+.commentActions {
+  display: flex;
+}
+
+.actionBtn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.likeButton {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../images/heart.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.likeButton:hover {
+  transform: scale(1.1);
+}
+
+.replyButton {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../images/comment.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.replyButton:hover {
+  transform: scale(1.1);
+}
+
+.updateButton {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../images/edit.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  padding: 1px;
+}
+
+.updateButton:hover {
+  transform: scale(1.1);
+}
+
+.deleteButton {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../images/delete.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: absolute;
+  top: 50px;
+  right: 8px;
+  padding: 20px;
+}
+
+.deleteButton:hover {
+  transform: scale(1.1);
+}

@@ -26,25 +26,24 @@ const ProfilePage = () => {
     if (userId) {
       fetchUser();
     }
+    console.log(user)
   }, [userId]); //we add user id on the array to have it again after refreshing the page
 
   return (
     <div>
-      <button onClick={logout}>Log out</button>
-      <h1>Users page</h1>
+
       <div className={styles.profileContainer}>
         <div className={styles.welcomeSection}>
-          <p>
-            Welcome <span className={styles.userEemail}>{user.username}</span>!
+          <p className={styles.username}>
+            Welcome {user.username}
           </p>
         </div>
-        <div className={styles.profile_section}>
-          <span className={styles.profilePicture}>{user.profile_picture}</span>
-        </div>
-        <div className={styles.eventSection}>
-          <h2>Events you are interested in:</h2>
-          {/* display events here */}
-        </div>
+
+
+      </div>
+      <div className={styles.buttonWrapper}>
+        <button className={styles.buttonLogOut} onClick={logout}>Log out</button>
+
       </div>
     </div>
   );
