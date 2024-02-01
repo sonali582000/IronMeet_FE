@@ -74,42 +74,59 @@ const EventDetails = () => {
 
   return (
     <div className={styles.eventDetailPageContainer}>
-      <div className={styles.eventContainer}>
-        <div className={styles.eventInfo}>
+      <div className={styles.container}>
+        <div className={styles.wrapper}>
           {event && (
             <div className={styles.eventMiddleContainer}>
               <img
-                className={styles.eventImage}
+                className={styles.bannerImage}
                 src={event.photo}
                 alt={event.title}
               ></img>
 
-              <div className={styles.textContainer}>
-                <p className={styles.eventTitle}>Event Infos</p>
-                <p>Title: {event.title}</p>
-                <p>Description: {event.description}</p>
-                <p>Location: {event.location}</p>
-                <p>Type: {event.type}</p>
-                <p>Status: {event.status}</p>
+              <div>
+                <h2 className={styles.h2}>Event Infos</h2>
+                <br />
+                <p className={styles.p}>
+                  {" "}
+                  Event: <br />
+                  {event.title}
+                </p>
+                <br />
+                <p className={styles.p}>
+                  Description: <br />
+                  {event.description}
+                </p>
+                <br />
+                <p className={styles.p}>Location: {event.location}</p>
+
+                <div className={styles.labelContainer}>
+                  <label className={styles.outline}>Type: {event.type}</label>
+                  <label className={styles.fill}>Status: {event.status}</label>
+                </div>
+                <div className={styles.eventButton}>
+                  {event.createdBy === userId && (
+                    <>
+                      {/*   <button className={styles.deleteButton} onClick={handleDelete}>
+                  Delete
+                </button>
+            */}
+                      <Link to={`/event/${eventId}`}>
+                        <button className={styles.updateEventButton}>
+                          Update
+                        </button>
+                      </Link>
+                      <Link to="/event/new">
+                        <button className={styles.CreateEventButton}>
+                          Create
+                        </button>
+                      </Link>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           )}
-
-          <div className={styles.eventButton}>
-            {event.createdBy === userId && (
-              <>
-                <button className={styles.deleteButton} onClick={handleDelete}>
-                  Delete
-                </button>
-                <Link to={`/event/${eventId}`}>
-                  <button className={styles.updateEventButton}>Update</button>
-                </Link>
-                <Link to="/event/new">
-                  <button className={styles.CreateEventButton}>Create</button>
-                </Link>
-              </>
-            )}
-          </div>
         </div>
       </div>
 

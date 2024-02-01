@@ -5,11 +5,11 @@
     justify-content: space-between;
     align-items: center;
     padding-block: 20px;
-    margin: 0 80px 40px 80px;
+    margin: 0 100px 40px 100px;
 }
 
 .logo {
-    width: 100px;
+    width: 120px;
     height: auto;
 }
 .logoContainer button{
@@ -23,7 +23,6 @@
 
 .link {
     margin-left: 20px;
-    /* Adjust the spacing between links if needed */
 }
 
 .link button {
@@ -43,28 +42,30 @@
 .links .link:last-child button {
     background-color: var(--main-green);
 }
-.links .link:last-child button, .links .link:nth-last-child(2) button{
+.links .link:last-child button, .links .link:nth-last-child(2) button, .logout{
     color:var(--main-background);
     padding: 4px 8px;
     border-radius: 8px;
 }
 
-/* Media query for mobile */
-@media only screen and (max-width: 768px) {
+.logout{
+    background-color: var(--main-green);
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .logoContainer .logo{
+        width: 70px;
+    }
     .navbar {
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 10px;
-    }
-
-    .links {
-        margin-top: 10px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .link {
-        margin: 5px 0;
-        /* Adjust the spacing between links if needed */
+        align-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 20px;
+        font-size: 12px;
     }
 }

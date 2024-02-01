@@ -12,13 +12,11 @@ function Footer() {
               <p>All Events</p>
             </Link>
           </div>
-          <div className={styles.column}>
-            <Link to="/">
-              <p>@2024 Iron Meet CopyWrite</p>
-            </Link>
-          </div>
         </div>
       </footer>
+      <div className={styles.copyrights}>
+        <p> &copy;2024 Iron Meet. All rights reserved.</p>
+      </div>
     </div>
   );
 }

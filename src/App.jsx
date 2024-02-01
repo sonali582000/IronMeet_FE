@@ -20,40 +20,40 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="pageContainer">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/*" element={<h1>Page not found</h1>} />
-          <Route path="/allEvents" element={<AllEventsPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route
-            path="/eventDetail/:eventId"
-            element={
-              <PrivateRoute>
-                <EventDetailsPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/event/new"
-            element={
-              <PrivateRoute>
-                <EventPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/event/:eventId"
-            element={
-              <PrivateRoute>
-                <UpdateEventPage />
-              </PrivateRoute>
-            }
-          />
-          {/* <Route path="/comment/:eventId" element={<AllComment />} /> This is for testing purpose don't uncomment it */}
-        </Routes>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/*" element={<h1>Page not found</h1>} />
+            <Route path="/allEvents" element={<AllEventsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/eventDetail/:eventId"
+              element={
+                <PrivateRoute>
+                  <EventDetailsPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/event/new"
+              element={
+                <PrivateRoute>
+                  <EventPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/event/:eventId"
+              element={
+                <PrivateRoute>
+                  <UpdateEventPage />
+                </PrivateRoute>
+              }
+            />
+            {/* <Route path="/comment/:eventId" element={<AllComment />} /> This is for testing purpose don't uncomment it */}
+          </Routes>
         </div>
         <Footer />
       </div>

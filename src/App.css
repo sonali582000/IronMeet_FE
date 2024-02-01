@@ -13,7 +13,8 @@
 }
 
 .pageContainer {
-  margin-inline: 80px;
+  margin-inline: 100px;
+  min-height: 70vh;
 }
 
 * {
