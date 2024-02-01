@@ -12,7 +12,6 @@ const AuthForm = ({ isLogin = false }) => {
 
   const { saveToken } = useContext(AuthContext);
 
-
   const handleEmail = (event) => setEmail(event.target.value);
   const handleUsername = (event) => setUsername(event.target.value);
 
@@ -30,7 +29,7 @@ const AuthForm = ({ isLogin = false }) => {
         }
       );
       if (response.status === 201) {
-        navigate("/");
+        navigate("/login");
         console.log("signed up");
       }
       if (response.status === 200) {
@@ -82,16 +81,24 @@ const AuthForm = ({ isLogin = false }) => {
         <button className={styles.signupButton} type="submit">
           {isLogin ? "Login" : "SignUp"}
         </button>
-        {
-          isLogin ? <div className={styles.navigateLinks}>Not a member, yet? <Link to="/signup"><span>SignUp</span></Link></div>
-            : <div className={styles.navigateLinks}><span>Already a member?</span> <Link to="/login"><span>Login</span></Link></div>
-        }
-
+        {isLogin ? (
+          <div className={styles.navigateLinks}>
+            Not a member, yet?{" "}
+            <Link to="/signup">
+              <span>SignUp</span>
+            </Link>
+          </div>
+        ) : (
+          <div className={styles.navigateLinks}>
+            <span>Already a member?</span>{" "}
+            <Link to="/login">
+              <span>Login</span>
+            </Link>
+          </div>
+        )}
       </form>
     </div>
-
   );
 };
 
 export default AuthForm;
-

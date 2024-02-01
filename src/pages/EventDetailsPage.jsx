@@ -5,6 +5,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import AllComment from "../components/AllComment";
 import styles from "../styles/EventDetailsPage.module.css";
 import comments from "../styles/allComment.module.css";
+
 const EventDetails = () => {
   const { fetchOneEvent, deleteEvent, event } = useContext(EventContext);
   const { userId, fetchWithToken } = useContext(AuthContext);
