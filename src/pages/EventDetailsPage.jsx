@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import AllComment from "../components/AllComment";
 import styles from "../styles/EventDetailsPage.module.css";
-
+import comments from "../styles/allComment.module.css";
 const EventDetails = () => {
   const { fetchOneEvent, deleteEvent, event } = useContext(EventContext);
   const { userId, fetchWithToken } = useContext(AuthContext);
@@ -13,7 +13,6 @@ const EventDetails = () => {
   const [text, setText] = useState("");
   const [commentId, setCommentId] = useState("");
   const [needsReload, setNeedsReload] = useState(true);
-  console.log(event);
 
   useEffect(() => {
     if (needsReload) {
@@ -129,30 +128,21 @@ const EventDetails = () => {
           )}
         </div>
       </div>
-
-      <div className={styles.commentsContainer}>
-        <form
-          className={styles.commentForm}
-          style={{ display: "flex", flexDirection: "column" }}
-          onSubmit={handleSubmit}
-        >
-          <textarea
-            rows={2}
-            cols={50}
-            placeholder="Your Comments"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-          <button className={styles.submitButton} type="submit">
-            Submit
-          </button>
-        </form>
-
-        <AllComment
-          className={styles.commentsContainer}
-          handleUpdate={handleUpdate}
-          needsReload={needsReload}
+      <form onSubmit={handleSubmit} className={comments.formContainer}>
+        <textarea
+          rows={2}
+          cols={50}
+          placeholder="Your Comments"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          className={comments.comment}
         />
+        <button type="submit" className={comments.submit}>
+          Submit
+        </button>
+      </form>
+      <div className={comments.containerAllComment}>
+        <AllComment handleUpdate={handleUpdate} needsReload={needsReload} />
       </div>
     </div>
   );
