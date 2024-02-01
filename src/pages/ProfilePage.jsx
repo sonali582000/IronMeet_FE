@@ -26,6 +26,7 @@ const ProfilePage = () => {
     if (userId) {
       fetchUser();
     }
+    console.log(user)
   }, [userId]); //we add user id on the array to have it again after refreshing the page
 
   return (
@@ -37,7 +38,7 @@ const ProfilePage = () => {
       <div className={styles.profileContainer}>
         <div className={styles.welcomeSection}>
           <p className={styles.userEmail}>
-            Welcome Ironhacker! <span className={styles.userEmail}>{user.userName}</span>!
+            Welcome Ironhacker! <span className={styles.userEmail}>{user.username}</span>!
           </p>
         </div>
         <div className={styles.profile_section}>
