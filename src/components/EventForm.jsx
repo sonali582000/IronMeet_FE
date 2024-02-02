@@ -3,6 +3,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "../styles/eventForm.module.css";
+import img1 from "../images/FE-Img1.jpg";
 
 const EventForm = ({ sameUser = false }) => {
   const [title, setTitle] = useState("");
@@ -86,79 +87,103 @@ const EventForm = ({ sameUser = false }) => {
 
   return (
     <>
-      <h1>{sameUser ? "Create an Event" : "Update an Event"}</h1>
-      <div className={styles.formWrapper}>
-        <form className={styles.eventFormContainer} onSubmit={handleSubmit}>
-          <label>
-            Title
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </label>
-          <label>
-            Description
-            <textarea
-              rows={1}
-              cols={10}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </label>
-          <label>
-            Date
-            <input
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
-          </label>
-          <label>
-            Category
-            <input
-              type="text"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            />
-          </label>
-          <label>
-            Location
-            <input
-              type="text"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
-          </label>
-          <label>
-            Type
-            <select value={type} onChange={(e) => setType(e.target.value)}>
-              <option value="">Select an option</option>
-              <option value="in-person">in-person</option>
-              <option value="virtual">virtual</option>
-              <option value="hybrid">hybrid</option>
-            </select>
-          </label>
-          <label>
-            Status
-            <select value={status} onChange={(e) => setStatus(e.target.value)}>
-              <option value="">Select an option</option>
-              <option value="upcoming">upcoming</option>
-              <option value="ongoing">ongoing</option>
-              <option value="completed">completed</option>
-              <option value="canceled">canceled</option>
-            </select>
-          </label>
-          <label>
-            Photo
-            <input
-              type="text"
-              value={photo}
-              onChange={(e) => setPhoto(e.target.value)}
-            />
-          </label>
-          <button type="submit">{sameUser ? "Create Event" : "Update"}</button>
-        </form>
+      <h1 className={styles.Title}>
+        {sameUser ? "Create an Event" : "Update an Event"}
+      </h1>
+      <div className={styles.container}>
+        <div className={styles.formContainer}>
+          {" "}
+          <form onSubmit={handleSubmit} className={styles.formcls}>
+            <label className={styles.labelcls}>
+              Title
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className={styles.inputTextcls}
+              />
+            </label>
+            <label className={styles.labelcls}>
+              Description
+              <textarea
+                rows={1}
+                cols={10}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className={styles.textAreacls}
+              />
+            </label>
+            <label className={styles.labelcls}>
+              Date
+              <input
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                className={styles.inputDatecls}
+              />
+            </label>
+            <label className={styles.labelcls}>
+              Category
+              <input
+                type="text"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className={styles.inputTextcls}
+              />
+            </label>
+            <label className={styles.labelcls}>
+              Location
+              <input
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className={styles.inputTextcls}
+              />
+            </label>
+            <label className={styles.labelcls}>
+              Type
+              <select
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+                className={styles.selectcls}
+              >
+                <option value="">Select an option</option>
+                <option value="in-person">in-person</option>
+                <option value="virtual">virtual</option>
+                <option value="hybrid">hybrid</option>
+              </select>
+            </label>
+            <label className={styles.labelcls}>
+              Status
+              <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                className={styles.selectcls}
+              >
+                <option value="">Select an option</option>
+                <option value="upcoming">upcoming</option>
+                <option value="ongoing">ongoing</option>
+                <option value="completed">completed</option>
+                <option value="canceled">canceled</option>
+              </select>
+            </label>
+            <label className={styles.labelcls}>
+              Photo
+              <input
+                type="text"
+                value={photo}
+                onChange={(e) => setPhoto(e.target.value)}
+                className={styles.inputTextcls}
+              />
+            </label>
+            <button type="submit" className={styles.buttoncls}>
+              {sameUser ? "Create Event" : "Update"}
+            </button>
+          </form>
+        </div>
+        <div className={styles.imageContainer}>
+          <img src={img1} alt="image" />
+        </div>
       </div>
     </>
   );
