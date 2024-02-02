@@ -57,7 +57,7 @@ in your termainal
 
 - npm i
 
-## Install your depency
+## Run your app in your local computer
 
 - npm run dev
 
