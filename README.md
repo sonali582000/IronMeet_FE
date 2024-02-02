@@ -42,8 +42,6 @@ IronMeet is your go-to app for connecting with fellow Ironhackers, enhancing you
 
 ## Technologies Used
 
-- IronMeet is built using cutting-edge technologies to provide a seamless and secure experience for Ironhackers.
-- [List of technologies used]
 - Database: MongoDB, Express
 - Framwork: React, Node.js, Java script
 
