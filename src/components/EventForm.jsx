@@ -77,6 +77,7 @@ const EventForm = ({ sameUser = false }) => {
       // For update event
       if (response.status === 200) {
         alert("Successfully updated an Event!");
+        navigate("/allEvents");
       } else {
         console.log(response, "Something went wrong while updating an event");
       }
