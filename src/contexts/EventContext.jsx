@@ -8,10 +8,10 @@ export const EventContext = createContext();
 const EventContextProvider = ({ children }) => {
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState([]);
-  const navigate = useNavigate()
+  const { fetchWithToken } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const fetchEvents = async () => {
-
     try {
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/event`);
 

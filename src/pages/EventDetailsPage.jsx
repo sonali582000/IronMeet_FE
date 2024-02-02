@@ -24,11 +24,21 @@ const EventDetails = () => {
     // console.log(event);
   }, [needsReload]);
 
-  const handleDelete = () => {
-    event.preventDefault();
-    deleteEvent(eventId);
-    console.log("deleted");
-    navigate("/");
+  const handleDelete = async (eventId) => {
+    // deleteEvent(eventId);
+    try {
+      const responseDelete = await fetchWithToken(`event/${eventId}`, "DELETE");
+      console.log(eventId);
+      if (responseDelete.status === 204) {
+        alert("Successfully deleted your event ;)");
+        navigate("/");
+        console.log("deleted");
+      } else {
+        alert("Error while deleting your event ;(");
+      }
+    } catch (error) {
+      console.log("Error while deleting!!");
+    }
   };
 
   //for creating comments
@@ -125,7 +135,7 @@ const EventDetails = () => {
                       <Link to="/allEvents">
                         <button
                           className={styles.deleteButton}
-                          onClick={handleDelete}
+                          onClick={() => handleDelete(eventId)}
                         >
                           Delete
                         </button>
