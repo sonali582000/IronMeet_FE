@@ -44,18 +44,26 @@ IronMeet is your go-to app for connecting with fellow Ironhackers, enhancing you
 
 - IronMeet is built using cutting-edge technologies to provide a seamless and secure experience for Ironhackers.
 - [List of technologies used]
+- Database: MongoDB, Express
+- Framwork: React, Node.js, Java script
 
 ## Feedback
 
 We value your feedback! If you have any suggestions, issues, or just want to share your thoughts, please reach out to us [https://aesthetic-sorbet-ce5bca.netlify.app/about](#) or through the app.
 
-## Contribute
+## Install your depency
 
-If you're interested in contributing to IronMeet, check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
+in your termainal
+
+- npm i
+
+## Install your depency
+
+- npm run dev
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE.md).
+This project is licensed.
 
 ---
 
