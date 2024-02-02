@@ -47,7 +47,7 @@ IronMeet is your go-to app for connecting with fellow Ironhackers, enhancing you
 
 ## Feedback
 
-We value your feedback! If you have any suggestions, issues, or just want to share your thoughts, please reach out to us [here](#) or through the app.
+We value your feedback! If you have any suggestions, issues, or just want to share your thoughts, please reach out to us [https://aesthetic-sorbet-ce5bca.netlify.app/](#) or through the app.
 
 ## Contribute
 
