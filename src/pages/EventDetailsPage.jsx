@@ -55,7 +55,7 @@ const EventDetails = () => {
     } catch (error) {
       console.log(error);
       console.log({
-        message: "Some went wrong while submitting your comment :(",
+        message: "Something went wrong while submitting your comment :(",
       });
     }
   };
@@ -78,6 +78,23 @@ const EventDetails = () => {
       console.log(error);
       console.log({
         message: "Some went wrong while updating your comment :(",
+      });
+    }
+  };
+
+  //for handling submit
+  const handleJoinUserSubmit = async () => {
+    const data = { userId, eventId };
+    try {
+      const res = await fetchWithToken("joined", "POST", data);
+      if (res.status === 201) {
+        alert("Successfully joined the event");
+        console.log(res);
+      }
+    } catch (error) {
+      console.log(error);
+      console.log({
+        message: "Something went wrong :(",
       });
     }
   };
@@ -117,7 +134,7 @@ const EventDetails = () => {
                   <br />
                   <label className={styles.fill}>Status: {event.status}</label>
                 </div>
-
+                <button onClick={handleJoinUserSubmit}>Join</button>
                 <div className={styles.eventButton}>
                   {event.createdBy === userId && (
                     <>
